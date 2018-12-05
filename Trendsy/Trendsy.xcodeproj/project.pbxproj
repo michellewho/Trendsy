@@ -13,9 +13,15 @@
 		3274CCE421ACBE5A004181BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3274CCE221ACBE5A004181BF /* Main.storyboard */; };
 		3274CCE621ACBE5C004181BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3274CCE521ACBE5C004181BF /* Assets.xcassets */; };
 		3274CCE921ACBE5C004181BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3274CCE721ACBE5C004181BF /* LaunchScreen.storyboard */; };
+		32919CDE21B7898F006C1557 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32919CDD21B7898F006C1557 /* AppData.swift */; };
+		32919CE221B78D40006C1557 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32919CE121B78D40006C1557 /* CustomTableViewCell.swift */; };
+		32919CE821B7938F006C1557 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32919CE721B7938F006C1557 /* SearchVC.swift */; };
+		E179D0A376183B7320F231A7 /* Pods_Trendsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7C73C8A3AB4ECA2C375AA6 /* Pods_Trendsy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C1A31344B7DFAE0CD879960 /* Pods-Trendsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendsy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy.debug.xcconfig"; sourceTree = "<group>"; };
+		2AEF10E974F4B70852F571E8 /* Pods-Trendsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy.release.xcconfig"; sourceTree = "<group>"; };
 		3274CCD921ACBE5A004181BF /* Trendsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trendsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3274CCDC21ACBE5A004181BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3274CCDE21ACBE5A004181BF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +30,10 @@
 		3274CCE521ACBE5C004181BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3274CCE821ACBE5C004181BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3274CCEA21ACBE5C004181BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32919CDD21B7898F006C1557 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		32919CE121B78D40006C1557 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		32919CE721B7938F006C1557 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		FF7C73C8A3AB4ECA2C375AA6 /* Pods_Trendsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trendsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E179D0A376183B7320F231A7 /* Pods_Trendsy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09EE67FDA21767F6FC3118F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C1A31344B7DFAE0CD879960 /* Pods-Trendsy.debug.xcconfig */,
+				2AEF10E974F4B70852F571E8 /* Pods-Trendsy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3274CCD021ACBE5A004181BF = {
 			isa = PBXGroup;
 			children = (
 				3274CCDB21ACBE5A004181BF /* Trendsy */,
 				3274CCDA21ACBE5A004181BF /* Products */,
+				09EE67FDA21767F6FC3118F3 /* Pods */,
+				8E6A237C20BF3300FC14E1D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +82,22 @@
 				3274CCDE21ACBE5A004181BF /* FirstViewController.swift */,
 				3274CCE021ACBE5A004181BF /* CategoryVC.swift */,
 				3274CCE221ACBE5A004181BF /* Main.storyboard */,
+				32919CDD21B7898F006C1557 /* AppData.swift */,
 				3274CCE521ACBE5C004181BF /* Assets.xcassets */,
 				3274CCE721ACBE5C004181BF /* LaunchScreen.storyboard */,
 				3274CCEA21ACBE5C004181BF /* Info.plist */,
+				32919CE121B78D40006C1557 /* CustomTableViewCell.swift */,
+				32919CE721B7938F006C1557 /* SearchVC.swift */,
 			);
 			path = Trendsy;
+			sourceTree = "<group>";
+		};
+		8E6A237C20BF3300FC14E1D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF7C73C8A3AB4ECA2C375AA6 /* Pods_Trendsy.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3274CCED21ACBE5C004181BF /* Build configuration list for PBXNativeTarget "Trendsy" */;
 			buildPhases = (
+				D032681FB45011D26042A5A0 /* [CP] Check Pods Manifest.lock */,
 				3274CCD521ACBE5A004181BF /* Sources */,
 				3274CCD621ACBE5A004181BF /* Frameworks */,
 				3274CCD721ACBE5A004181BF /* Resources */,
+				73AE2E6751D4F026FE92717E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +168,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		73AE2E6751D4F026FE92717E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D032681FB45011D26042A5A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trendsy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3274CCD521ACBE5A004181BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32919CE821B7938F006C1557 /* SearchVC.swift in Sources */,
 				3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */,
+				32919CE221B78D40006C1557 /* CustomTableViewCell.swift in Sources */,
 				3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */,
 				3274CCDF21ACBE5A004181BF /* FirstViewController.swift in Sources */,
+				32919CDE21B7898F006C1557 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +369,7 @@
 		};
 		3274CCEE21ACBE5C004181BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C1A31344B7DFAE0CD879960 /* Pods-Trendsy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +388,7 @@
 		};
 		3274CCEF21ACBE5C004181BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AEF10E974F4B70852F571E8 /* Pods-Trendsy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
