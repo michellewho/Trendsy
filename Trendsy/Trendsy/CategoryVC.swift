@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import Alamofire
 
 class CategoryVC: UIViewController, UITableViewDataSource {
     
