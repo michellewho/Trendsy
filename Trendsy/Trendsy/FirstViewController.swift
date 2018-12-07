@@ -20,7 +20,6 @@ class FirstViewController: UIViewController {
         
         req.oAuthSign(method: "GET", consumerCredentials: cc)
         
-        
         let task = URLSession(configuration: .ephemeral).dataTask(with: req) { (data, response, error) in
             
             if let error = error {
@@ -28,7 +27,6 @@ class FirstViewController: UIViewController {
             }
             else if let data = data {
                 print(String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :(")
-                
             }
         }
         task.resume()
