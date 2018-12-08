@@ -13,10 +13,34 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dispatchFunc()
-        
-        
+        //getTweetsWithHashtag(searchTopic: "SeduceMeIn4Words")
     }
-
+    
+    func getTweetsWithHashtag(searchTopic: String) {
+        // https://api.twitter.com/1.1/search/tweets.json?q=SeduceMeIn4Words&result_type=popular
+        let cc = (key: apiKey, secret: apiSecret)
+        let uc = (key: accessToken, secret: accessTokenSecret)
+        //let search = "SeduceMeIn4Words"
+        var req = URLRequest(url: URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=SeduceMeIn4Words&result_type=popular")!)
+        
+        req.oAuthSign(method: "GET", consumerCredentials: cc, userCredentials: uc)
+        
+        let task = URLSession(configuration: .ephemeral).dataTask(with: req) { (data, response, error) in
+            if let error = error {
+                print(error)
+            }
+            else if let data = data {
+                //print(response)
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]]
+                    //print(json)
+                } catch {
+                    print("Error deserializing JSON: \(error)")
+                }
+            }
+        }
+        task.resume()
+    }
     
     func dispatchFunc() {
         let group = DispatchGroup()
