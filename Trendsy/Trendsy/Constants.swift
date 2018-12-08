@@ -18,3 +18,5 @@ let YaClientSecret = "4fbb38a0509945d6bb69988cfb5b9e4125f33474"
 
 var StateID = 0
 var CityID = 0
+
+var Hashtags = [(name: String, url: String)]()
