@@ -15,3 +15,6 @@ let accessTokenSecret = "Frnwy3I7ewnvpS6LCzV07J4vJ7oCtlNAtwJGgYb1F28th"
 
 let YaConsumerKey = "dj0yJmk9Rm1Wa1hCUU0yWmVPJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWZl"
 let YaClientSecret = "4fbb38a0509945d6bb69988cfb5b9e4125f33474"
+
+var StateID = 0
+var CityID = 0
