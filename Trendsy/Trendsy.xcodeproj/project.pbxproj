@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32189F9D21BC78DB0092A6EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32189F9C21BC78DB0092A6EF /* Constants.swift */; };
 		3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDC21ACBE5A004181BF /* AppDelegate.swift */; };
 		3274CCDF21ACBE5A004181BF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDE21ACBE5A004181BF /* FirstViewController.swift */; };
 		3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCE021ACBE5A004181BF /* CategoryVC.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		0C1A31344B7DFAE0CD879960 /* Pods-Trendsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendsy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy.debug.xcconfig"; sourceTree = "<group>"; };
 		2AEF10E974F4B70852F571E8 /* Pods-Trendsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy.release.xcconfig"; sourceTree = "<group>"; };
+		32189F9C21BC78DB0092A6EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3274CCD921ACBE5A004181BF /* Trendsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trendsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3274CCDC21ACBE5A004181BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3274CCDE21ACBE5A004181BF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				3274CCEA21ACBE5C004181BF /* Info.plist */,
 				32919CE121B78D40006C1557 /* CustomTableViewCell.swift */,
 				32919CE721B7938F006C1557 /* SearchVC.swift */,
+				32189F9C21BC78DB0092A6EF /* Constants.swift */,
 			);
 			path = Trendsy;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */,
 				32919CE221B78D40006C1557 /* CustomTableViewCell.swift in Sources */,
 				3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */,
+				32189F9D21BC78DB0092A6EF /* Constants.swift in Sources */,
 				3274CCDF21ACBE5A004181BF /* FirstViewController.swift in Sources */,
 				32919CDE21B7898F006C1557 /* AppData.swift in Sources */,
 			);
