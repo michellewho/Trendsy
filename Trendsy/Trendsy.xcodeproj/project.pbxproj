@@ -12,7 +12,7 @@
 		3270B81C21BCF08B00EDBF83 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270B81B21BCF08B00EDBF83 /* PhotoCell.swift */; };
 		3270B81E21BCF3FE00EDBF83 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270B81D21BCF3FE00EDBF83 /* PinterestLayout.swift */; };
 		3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDC21ACBE5A004181BF /* AppDelegate.swift */; };
-		3274CCDF21ACBE5A004181BF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDE21ACBE5A004181BF /* FirstViewController.swift */; };
+		3274CCDF21ACBE5A004181BF /* JSONController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDE21ACBE5A004181BF /* JSONController.swift */; };
 		3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCE021ACBE5A004181BF /* CategoryVC.swift */; };
 		3274CCE421ACBE5A004181BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3274CCE221ACBE5A004181BF /* Main.storyboard */; };
 		3274CCE621ACBE5C004181BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3274CCE521ACBE5C004181BF /* Assets.xcassets */; };
@@ -33,7 +33,7 @@
 		3270B81D21BCF3FE00EDBF83 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		3274CCD921ACBE5A004181BF /* Trendsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trendsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3274CCDC21ACBE5A004181BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3274CCDE21ACBE5A004181BF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		3274CCDE21ACBE5A004181BF /* JSONController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONController.swift; sourceTree = "<group>"; };
 		3274CCE021ACBE5A004181BF /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		3274CCE321ACBE5A004181BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3274CCE521ACBE5C004181BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,7 +99,8 @@
 			children = (
 				3270B81A21BCF03F00EDBF83 /* Views */,
 				3274CCDC21ACBE5A004181BF /* AppDelegate.swift */,
-				3274CCDE21ACBE5A004181BF /* FirstViewController.swift */,
+				3274CCDE21ACBE5A004181BF /* JSONController.swift */,
+				F262CD0B21BCA30D002F60A6 /* Constants.swift */,
 				3274CCE021ACBE5A004181BF /* CategoryVC.swift */,
 				3274CCE221ACBE5A004181BF /* Main.storyboard */,
 				3270B81821BCEAAA00EDBF83 /* ViewController.swift */,
@@ -110,7 +111,6 @@
 				3274CCEA21ACBE5C004181BF /* Info.plist */,
 				32919CE121B78D40006C1557 /* CustomTableViewCell.swift */,
 				32919CE721B7938F006C1557 /* SearchVC.swift */,
-				F262CD0B21BCA30D002F60A6 /* Constants.swift */,
 			);
 			path = Trendsy;
 			sourceTree = "<group>";
@@ -252,7 +252,7 @@
 				3270B81C21BCF08B00EDBF83 /* PhotoCell.swift in Sources */,
 				3270B81E21BCF3FE00EDBF83 /* PinterestLayout.swift in Sources */,
 				F262CD0C21BCA30D002F60A6 /* Constants.swift in Sources */,
-				3274CCDF21ACBE5A004181BF /* FirstViewController.swift in Sources */,
+				3274CCDF21ACBE5A004181BF /* JSONController.swift in Sources */,
 				32919CDE21B7898F006C1557 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
