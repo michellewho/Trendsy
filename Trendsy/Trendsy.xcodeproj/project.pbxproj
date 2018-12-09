@@ -94,12 +94,6 @@
 				3274CCEA21ACBE5C004181BF /* Info.plist */,
 				32919CE121B78D40006C1557 /* CustomTableViewCell.swift */,
 				32919CE721B7938F006C1557 /* SearchVC.swift */,
-<<<<<<< HEAD
-				32189F9C21BC78DB0092A6EF /* Constants.swift */,
-				117C126021BC98E800ABA5CF /* ResultsVC.swift */,
-=======
-				F262CD0B21BCA30D002F60A6 /* Constants.swift */,
->>>>>>> origin/new-api
 			);
 			path = Trendsy;
 			sourceTree = "<group>";
@@ -236,12 +230,6 @@
 				3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */,
 				32919CE221B78D40006C1557 /* CustomTableViewCell.swift in Sources */,
 				3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */,
-<<<<<<< HEAD
-				32189F9D21BC78DB0092A6EF /* Constants.swift in Sources */,
-				117C126121BC98E800ABA5CF /* ResultsVC.swift in Sources */,
-=======
-				F262CD0C21BCA30D002F60A6 /* Constants.swift in Sources */,
->>>>>>> origin/new-api
 				3274CCDF21ACBE5A004181BF /* FirstViewController.swift in Sources */,
 				32919CDE21B7898F006C1557 /* AppData.swift in Sources */,
 			);
