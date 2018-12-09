@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import UIKit
 
 class AppData: NSObject {
@@ -19,9 +18,12 @@ class AppData: NSObject {
 
     open var categoriesToSearch = ["Sports", "Movies", "Fashion", "Technology", "Holidays", "Weather", "News", "Politics", "Education", "Travel", "Food", "Shopping"]
     open var hashtags = ["#SDLive", "#TheFlash", "#SNLChristmas", "#BelowDeck", "#Kardashians"]
-    open var top5 = ["Dogs are so cute!", "The white house shoudl get a dog!", "Normie is so cute!", "woohoo yea dogs!", "dogs are sick!"]
-    open var top5Username = ["kimkardashian", "TheRealDonaldTrump", "KingKylie", "MichelleHO", "Juliab4"]
-    open var links = ["https://twitter.com/kyliecosmetics/status/1071123613745475584", "https://twitter.com/kyliecosmetics/status/1071123613745475584", "https://twitter.com/kyliecosmetics/status/1071123613745475584", "https://twitter.com/kyliecosmetics/status/1071123613745475584", "https://twitter.com/kyliecosmetics/status/1071123613745475584"]
+//    open var top5 = ["Dogs are so cute!", "The white house shoudl get a dog!", "Normie is so cute!", "woohoo yea dogs!", "dogs are sick!"]
+    open var top5 = [String]()
+//    open var top5Username = ["kimkardashian", "TheRealDonaldTrump", "KingKylie", "MichelleHO", "Juliab4"]
+//    open var links = ["https://twitter.com/kyliecosmetics/status/1071123613745475584", "https://twitter.com/kyliecosmetics/status/1071123613745475584", "https://twitter.com/kyliecosmetics/status/1071123613745475584", "https://twitter.com/kyliecosmetics/status/1071123613745475584", "https://twitter.com/kyliecosmetics/status/1071123613745475584"]
+    open var top5Username = [String]()
+    open var links = [String]()
     open var searchRecents = [String]()
     open var selectedScope = Int()
     

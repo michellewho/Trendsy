@@ -15,7 +15,9 @@ class ResultsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
+    @IBAction func backToS(_ sender: Any) {
+        performSegue(withIdentifier: "backToSearch", sender: sender)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +39,12 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
            let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "resultsCell")
         cell.textLabel?.text = appData.top5Username [indexPath.row]
         cell.detailTextLabel?.text = appData.top5[indexPath.row]
-        cell.detailTextLabel?.numberOfLines=0
+        cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130.0
     }
     
@@ -53,7 +54,5 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
         if let url = URL(string: link){
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-
     }
-    
 }

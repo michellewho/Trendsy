@@ -64,15 +64,50 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     
     // Tracks what user selects as interesting in the search function.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     //  var recentSearch = ""
-     //   if(searchedElement.count == 0) {
-      //      recentSearch = appData.locations[indexPath.row]
-     //   } else {
-     //       recentSearch = searchedElement[indexPath.row]
-      //  }
-      //  if(!appData.searchRecents.contains(recentSearch)) {
-      //     appData.searchRecents.append(recentSearch)
-      //  }
+        let instanceOfJson = FirstViewController()
+        appData.top5Username = []
+        appData.links = []
+        appData.top5 = []
+        // get data for location
+        if(appData.selectedScope == 1) {
+            var currentCell = ""
+            if(isSearching) {
+                currentCell = searchedElement[indexPath.row]
+            } else {
+                currentCell = appData.locations[indexPath.row]
+            }
+            print("this is the country:", currentCell)
+            let jsonData = instanceOfJson.dispatchFunc(givenLocation: currentCell)
+            var index = 0
+            while index <= 5 {
+                appData.top5Username.append(jsonData[index].name)
+                appData.links.append(jsonData[index].url)
+                appData.top5.append(" ")
+                index += 1
+            }
+        // get data for hashtags
+        } else if (appData.selectedScope == 0) {
+            print("need json to work")
+            var index = 0
+            while index <= 5 {
+                appData.top5Username.append("Sample Username")
+                appData.links.append("https://twitter.com/kyliecosmetics/status/1071123613745475584")
+                appData.top5.append("Sample Tweet")
+                index += 1
+            }
+        // get data for categories
+        } else {
+            print("need json to work")
+            var index = 0
+            while index <= 5 {
+                appData.top5Username.append("Sample Username")
+                appData.links.append("https://twitter.com/kyliecosmetics/status/1071123613745475584")
+                appData.top5.append("Sample Tweet")
+                index += 1
+            }
+            
+        }
+        
         performSegue(withIdentifier: "goToResults", sender: self)
         
     }
