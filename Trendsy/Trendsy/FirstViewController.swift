@@ -13,13 +13,13 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dispatchFunc()
+        //dispatchFunc()
         //print("TEST")
-        //getTweetsWithHashtag(searchTopic: "SeduceMeIn4Words")
+        getTweetsWithHashtag(searchTopic: "SeduceMeIn4Words", numTweetsReturned: 5)
     }
     
     
-    func getTweetsWithHashtag(searchTopic: String) {
+    func getTweetsWithHashtag(searchTopic: String, numTweetsReturned: Int) {
         let cc = (key: apiKey, secret: apiSecret)
         let uc = (key: accessToken, secret: accessTokenSecret)
         //let search = "SeduceMeIn4Words"
@@ -29,39 +29,41 @@ class FirstViewController: UIViewController {
         req.oAuthSign(method: "GET", consumerCredentials: cc, userCredentials: uc)
         
         let task = URLSession(configuration: .ephemeral).dataTask(with: req) { (data, response, error) in
-            
+            var arrayDataReturned = [(name: String, text: String, url: String)]()
             if let error = error {
                 print(error)
             }
             else if let data = data {
-                var newData = String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :("
-                print(newData)
-                print(String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :(")
                 
                 do {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                    for item in json! {
-                        print ("ITEM", item)
-                        if let inner = item.value as? [String: Any] {
-                            print ("INNER", inner)
-                            /*
-                             if let results = inner["results"] as? [String : Any] {
-                             if let places = results["place"] as? NSArray {
-                             let place = places[0] as! NSDictionary
-                             var woeid = Int((place["woeid"] as! NSString) as String)!
-                             currWOEID = woeid
-                             }
-                             }
-                             */
-                        }
+                    //print(json!["statuses"])
+                    let arrayObj = json!["statuses"] as? [[String : Any]]
+                    // GET NAME
+                    var i = 0
+                    while (i < numTweetsReturned) {
+                        // GET NAME
+                        let user = arrayObj![i]["user"] as? [String : Any]
+                        let name = user!["screen_name"] as? String ?? ""
+                        // GET TEXT
+                        let text = arrayObj![i]["text"] as? String ?? ""
+                        // GET URL
+                        let urlNum = arrayObj![i]["id_str"] as? String ?? ""
+                        let url = "https://twitter.com/statuses/ID" + urlNum
+                        // ADD TO ARRAY
+                        arrayDataReturned.append((name: name, text: text, url: url))
+                        i = i + 1
                     }
                 } catch {
                     print("Error deserializing JSON: \(error)")
                 }
-                
+                TweetsReturned = arrayDataReturned
             }
+            DispatchQueue.main.async {
+                //self.tableView.reloadData()
+            }
+            print(arrayDataReturned)
         }
-        
         task.resume()
     }
     
@@ -96,7 +98,7 @@ class FirstViewController: UIViewController {
                                     let count = inner["count"] as? Int
                                     if count == 1 {
                                         let place = results as NSDictionary
-                                        var word = place["place"] as! NSDictionary
+                                        let word = place["place"] as! NSDictionary
                                         print ("WORD", word)
                                         let woeid = Int((word["woeid"] as! NSString) as String)!
                                         currWOEID = woeid
