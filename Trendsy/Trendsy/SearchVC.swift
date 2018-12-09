@@ -19,7 +19,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        searchBar.scopeButtonTitles = ["All", "Recent Views"]
+        searchBar.scopeButtonTitles = ["Hashtags", "Location", "Categories"]
         appData.selectedScope = 0
     }
     
@@ -36,12 +36,14 @@ class SearchVC: UIViewController {
 extension SearchVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(isSearching && appData.selectedScope == 0) {
+        if(isSearching) {
             return searchedElement.count
-        }else if(appData.selectedScope == 1) {
-            return appData.searchRecents.count
+        } else if (appData.selectedScope == 0) {
+            return appData.hashtags.count
+        } else if (appData.selectedScope == 1) {
+            return appData.locations.count
         } else {
-            return appData.testSearches.count
+            return appData.categoriesToSearch.count
         }
     }
     
@@ -49,47 +51,57 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         if(isSearching) {
-            // Looks at the array that maches constraints of search term
             cell.textLabel?.text = searchedElement[indexPath.row]
-        } else if appData.selectedScope == 1 && appData.searchRecents.count > indexPath.row {
-            cell.textLabel?.text = appData.searchRecents[indexPath.row]
+        } else if appData.selectedScope == 0 && appData.hashtags.count > indexPath.row {
+            cell.textLabel?.text = appData.hashtags[indexPath.row]
+        } else if appData.selectedScope == 2 && appData.categoriesToSearch.count > indexPath.row {
+            cell.textLabel?.text = appData.categoriesToSearch[indexPath.row]
         } else {
-            // Populate table view with all the necessary data
-            cell.textLabel?.text = appData.testSearches[indexPath.row]
+            cell.textLabel?.text = appData.locations[indexPath.row]
         }
         return cell
     }
     
     // Tracks what user selects as interesting in the search function.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var recentSearch = ""
-        if(searchedElement.count == 0) {
-            recentSearch = appData.testSearches[indexPath.row]
-        } else {
-            recentSearch = searchedElement[indexPath.row]
-        }
-        if(!appData.searchRecents.contains(recentSearch)) {
-           appData.searchRecents.append(recentSearch)
-        }
+     //  var recentSearch = ""
+     //   if(searchedElement.count == 0) {
+      //      recentSearch = appData.locations[indexPath.row]
+     //   } else {
+     //       recentSearch = searchedElement[indexPath.row]
+      //  }
+      //  if(!appData.searchRecents.contains(recentSearch)) {
+      //     appData.searchRecents.append(recentSearch)
+      //  }
+        performSegue(withIdentifier: "goToResults", sender: self)
+        
     }
 }
 
 extension SearchVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedElement = appData.testSearches.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        if(appData.selectedScope == 1) {
-            isSearching = false
+        //Hashtags
+        if(appData.selectedScope == 0){
+             searchedElement = appData.hashtags.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        // Location
+        }else if(appData.selectedScope == 1) {
+            searchedElement = appData.locations.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+
+        // Categories
         } else {
-            isSearching = true
+              searchedElement = appData.categoriesToSearch.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
         }
+        
+        isSearching = true
         tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        isSearching = false
         appData.selectedScope = selectedScope
-        print(searchedElement)
-        print(appData.selectedScope)
         tableView.reloadData()
     }
+    
+    
 }
