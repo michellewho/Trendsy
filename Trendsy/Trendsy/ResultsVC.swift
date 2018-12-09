@@ -15,9 +15,6 @@ class ResultsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func backToS(_ sender: Any) {
-        performSegue(withIdentifier: "backToSearch", sender: sender)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +36,20 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
            let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "resultsCell")
         cell.textLabel?.text = appData.top5Username [indexPath.row]
         cell.detailTextLabel?.text = appData.top5[indexPath.row]
+        
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
+        cell.textLabel?.textAlignment = .center
+        cell.detailTextLabel?.textAlignment = .center
+        
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 4
+        cell.layer.borderWidth = 1
+        cell.layer.shadowOffset = CGSize(width: -1, height: 1)
+        let borderColor: UIColor = UIColor(red:0.24, green:0.43, blue:0.89, alpha:1.0)
+        cell.layer.borderColor = borderColor.cgColor
+        
         return cell
     }
     

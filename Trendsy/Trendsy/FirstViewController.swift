@@ -65,10 +65,9 @@ class FirstViewController: UIViewController {
     
     func dispatchFunc(givenLocation: String) -> Array<(name: String, url: String)>{
         let group = DispatchGroup()
-        var location = "United States"
         var currWOEID = -1
         // change spaces so they can work in URL
-        location = location.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        let location = givenLocation.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
         //-----------------------------
         group.enter()
         //------------------------------
@@ -141,16 +140,17 @@ class FirstViewController: UIViewController {
                 else if let data = data {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]]
-                        print ("JSON RESPONSE", json)
-                        for results in json! {
-                            if let trends = results["trends"] as? NSArray {
-                                let swiftArray: [Any] = trends.compactMap({ $0 })
-                                //print(swiftArray)
-                                for item in swiftArray {
-                                    if let objItem = item as? [String : Any] {
-                                        let n = objItem["name"] as? String ?? ""
-                                        let u = objItem["url"] as? String ?? ""
-                                        arrayDataReturned.append((name: n, url: u))
+                        if(json != nil) {
+                            for results in json! {
+                                if let trends = results["trends"] as? NSArray {
+                                    let swiftArray: [Any] = trends.compactMap({ $0 })
+                                    //print(swiftArray)
+                                    for item in swiftArray {
+                                        if let objItem = item as? [String : Any] {
+                                            let n = objItem["name"] as? String ?? ""
+                                            let u = objItem["url"] as? String ?? ""
+                                            arrayDataReturned.append((name: n, url: u))
+                                        }
                                     }
                                 }
                             }

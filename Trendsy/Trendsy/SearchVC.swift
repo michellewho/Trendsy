@@ -12,6 +12,7 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var appData = AppData.shared
+    var isBlue = false
     
     var searchedElement = [String]()
     var isSearching = false
@@ -59,35 +60,53 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.textLabel?.text = appData.locations[indexPath.row]
         }
+        
+        // Adds boarder to table cells
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 4
+        cell.layer.borderWidth = 1
+        cell.layer.shadowOffset = CGSize(width: -1, height: 1)
+        let borderColor: UIColor = UIColor(red:0.72, green:0.76, blue:0.88, alpha:1.0)
+        cell.layer.borderColor = borderColor.cgColor
         return cell
     }
     
     // Tracks what user selects as interesting in the search function.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let instanceOfJson = FirstViewController()
+        
+        // Resets the top 5 tweets info
         appData.top5Username = []
         appData.links = []
         appData.top5 = []
+        
         // get data for location
         if(appData.selectedScope == 1) {
+            
+            // Looks at Location Data from dispatchFunc
             var currentCell = ""
             if(isSearching) {
                 currentCell = searchedElement[indexPath.row]
             } else {
                 currentCell = appData.locations[indexPath.row]
             }
-            print("this is the country:", currentCell)
             let jsonData = instanceOfJson.dispatchFunc(givenLocation: currentCell)
             var index = 0
-            while index <= 5 {
-                appData.top5Username.append(jsonData[index].name)
-                appData.links.append(jsonData[index].url)
-                appData.top5.append(" ")
-                index += 1
+            if(jsonData.count == 0) {
+                let alert = UIAlertController(title: "Sorry!", message: "No Twitter Data for " + currentCell, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Search Another Location", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                while index <= 5 {
+                    appData.top5Username.append(jsonData[index].name)
+                    appData.links.append(jsonData[index].url)
+                    appData.top5.append(" ")
+                    index += 1
+                }
+                performSegue(withIdentifier: "goToResults", sender: self)
             }
         // get data for hashtags
         } else if (appData.selectedScope == 0) {
-            print("need json to work")
             var index = 0
             while index <= 5 {
                 appData.top5Username.append("Sample Username")
@@ -95,9 +114,9 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
                 appData.top5.append("Sample Tweet")
                 index += 1
             }
+            performSegue(withIdentifier: "goToResults", sender: self)
         // get data for categories
         } else {
-            print("need json to work")
             var index = 0
             while index <= 5 {
                 appData.top5Username.append("Sample Username")
@@ -105,16 +124,15 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
                 appData.top5.append("Sample Tweet")
                 index += 1
             }
+            performSegue(withIdentifier: "goToResults", sender: self)
             
         }
-        
-        performSegue(withIdentifier: "goToResults", sender: self)
-        
     }
 }
 
 extension SearchVC: UISearchBarDelegate {
     
+    // Function tracks if the user is searching
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //Hashtags
         if(appData.selectedScope == 0){
@@ -132,11 +150,11 @@ extension SearchVC: UISearchBarDelegate {
         tableView.reloadData()
     }
     
+    // Tracks the selected scope on the scope bar
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         isSearching = false
         appData.selectedScope = selectedScope
         tableView.reloadData()
     }
-    
     
 }
