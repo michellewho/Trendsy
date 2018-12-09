@@ -24,7 +24,7 @@ class FirstViewController: UIViewController {
         let uc = (key: accessToken, secret: accessTokenSecret)
         //let search = "SeduceMeIn4Words"
         
-        var req = URLRequest(url: URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=SeduceMeIn4Words&result_type=popular")!)
+        var req = URLRequest(url: URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=" + searchTopic + "&result_type=popular")!)
         
         req.oAuthSign(method: "GET", consumerCredentials: cc, userCredentials: uc)
         
