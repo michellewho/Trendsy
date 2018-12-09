@@ -164,6 +164,7 @@
                         <outlet property="searchBar" destination="2JQ-gW-xgl" id="6OQ-S4-jKE"/>
                         <outlet property="searchDisplayController" destination="dpC-Hm-unN" id="3Ad-Qu-cG4"/>
                         <outlet property="tableView" destination="Fum-hN-65O" id="FPw-yJ-VyY"/>
+                        <segue destination="RH2-Ar-QUu" kind="show" identifier="goToResults" id="Ba1-cN-caK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tuz-YV-llb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,6 +194,60 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="1111.3943028485758"/>
+        </scene>
+        <!--ResultsVC-->
+        <scene sceneID="m2S-GJ-g5M">
+            <objects>
+                <viewController id="RH2-Ar-QUu" customClass="ResultsVC" customModule="Trendsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JiP-yO-fen">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JeS-eZ-tDI">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resultsCell" rowHeight="100" id="C8F-T8-SXZ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C8F-T8-SXZ" id="Bps-kf-SR5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RH2-Ar-QUu" id="PBC-qR-q7f"/>
+                                    <outlet property="delegate" destination="RH2-Ar-QUu" id="r1R-A2-qnq"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2x-Un-QiL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Top 5 Tweets" id="nAh-Qw-K0A"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JeS-eZ-tDI" firstAttribute="top" secondItem="o2x-Un-QiL" secondAttribute="bottom" id="BfV-Qs-mJC"/>
+                            <constraint firstItem="JeS-eZ-tDI" firstAttribute="bottom" secondItem="HIM-rp-nto" secondAttribute="bottom" id="M2o-DB-iNA"/>
+                            <constraint firstItem="o2x-Un-QiL" firstAttribute="trailing" secondItem="HIM-rp-nto" secondAttribute="trailing" id="REN-uH-RxR"/>
+                            <constraint firstItem="o2x-Un-QiL" firstAttribute="top" secondItem="HIM-rp-nto" secondAttribute="top" id="Re6-0K-IHg"/>
+                            <constraint firstItem="o2x-Un-QiL" firstAttribute="leading" secondItem="HIM-rp-nto" secondAttribute="leading" id="YWX-RW-efQ"/>
+                            <constraint firstItem="JeS-eZ-tDI" firstAttribute="leading" secondItem="HIM-rp-nto" secondAttribute="leading" id="Yqt-a2-lS7"/>
+                            <constraint firstItem="JeS-eZ-tDI" firstAttribute="trailing" secondItem="HIM-rp-nto" secondAttribute="trailing" id="dDp-mr-JCk"/>
+                            <constraint firstItem="JeS-eZ-tDI" firstAttribute="top" secondItem="o2x-Un-QiL" secondAttribute="bottom" id="ldg-Eu-16O"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HIM-rp-nto"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="JeS-eZ-tDI" id="tY7-bF-ReR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YgD-bq-55b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1906" y="1111"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

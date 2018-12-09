@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDC21ACBE5A004181BF /* AppDelegate.swift */; };
 		3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCE021ACBE5A004181BF /* CategoryVC.swift */; };
 		3274CCE421ACBE5A004181BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3274CCE221ACBE5A004181BF /* Main.storyboard */; };
@@ -19,10 +20,12 @@
 		32EBADCA21BC9C9100332645 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EBADC921BC9C9100332645 /* CustomCollectionViewCell.swift */; };
 		32EBADCC21BC9F4700332645 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EBADCB21BC9F4700332645 /* FeedVC.swift */; };
 		E179D0A376183B7320F231A7 /* Pods_Trendsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7C73C8A3AB4ECA2C375AA6 /* Pods_Trendsy.framework */; };
+		F262CD0C21BCA30D002F60A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F262CD0B21BCA30D002F60A6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C1A31344B7DFAE0CD879960 /* Pods-Trendsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendsy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy.debug.xcconfig"; sourceTree = "<group>"; };
+		117C126021BC98E800ABA5CF /* ResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
 		2AEF10E974F4B70852F571E8 /* Pods-Trendsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy.release.xcconfig"; sourceTree = "<group>"; };
 		3274CCD921ACBE5A004181BF /* Trendsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trendsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3274CCDC21ACBE5A004181BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,9 +37,7 @@
 		32919CDD21B7898F006C1557 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		32919CE121B78D40006C1557 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		32919CE721B7938F006C1557 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		32EBADBD21BC8DEC00332645 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		32EBADC921BC9C9100332645 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
-		32EBADCB21BC9F4700332645 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+
 		FF7C73C8A3AB4ECA2C375AA6 /* Pods_Trendsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trendsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,7 +94,7 @@
 				3274CCE721ACBE5C004181BF /* LaunchScreen.storyboard */,
 				3274CCEA21ACBE5C004181BF /* Info.plist */,
 				32919CE721B7938F006C1557 /* SearchVC.swift */,
-				32EBADBD21BC8DEC00332645 /* Constants.swift */,
+
 			);
 			path = Trendsy;
 			sourceTree = "<group>";
@@ -184,13 +185,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/OhhAuth/OhhAuth.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OhhAuth.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -232,7 +233,7 @@
 				32EBADCA21BC9C9100332645 /* CustomCollectionViewCell.swift in Sources */,
 				32919CE221B78D40006C1557 /* CustomTableViewCell.swift in Sources */,
 				3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */,
-				32EBADBE21BC8DEC00332645 /* Constants.swift in Sources */,
+
 				32919CDE21B7898F006C1557 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,6 @@ target 'Trendsy' do
   use_frameworks!
 
   # Pods for Trendsy
-  pod 'Alamofire', '~> 4.7'
+  pod 'OhhAuth'
 
 end

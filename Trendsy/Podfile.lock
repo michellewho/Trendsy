@@ -1,16 +1,16 @@
 PODS:
-  - Alamofire (4.7.3)
+  - OhhAuth (1.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7)
+  - OhhAuth
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Alamofire
+    - OhhAuth
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  OhhAuth: 82863d7a9aa2a749eb2c65551281c01f3facf501
 
-PODFILE CHECKSUM: 35e7bc2db20c756ef0225e8c6e4f563044f07a7b
+PODFILE CHECKSUM: 1182362bf556034940d28473fd2c7bcbb83ab8fe
 
 COCOAPODS: 1.5.3
