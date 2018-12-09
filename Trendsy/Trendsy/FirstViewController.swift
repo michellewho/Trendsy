@@ -13,10 +13,9 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var location = "Argentina"
-        //dispatchFunc(location)
+        dispatchFunc()
         //print("TEST")
-        getTweetsWithHashtag(searchTopic: "SeduceMeIn4Words")
+        //getTweetsWithHashtag(searchTopic: "SeduceMeIn4Words")
     }
     
     
@@ -35,71 +34,43 @@ class FirstViewController: UIViewController {
                 print(error)
             }
             else if let data = data {
-                var test = String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :("
+                var newData = String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :("
+                print(newData)
+                print(String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :(")
+                
                 do {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                    print ("JSON", json)
                     for item in json! {
+                        print ("ITEM", item)
                         if let inner = item.value as? [String: Any] {
-                            print ("got in here hello")
-                            print ("inner", inner)
+                            print ("INNER", inner)
                             /*
-                            if let results = inner["results"] as? [String : Any] {
-                                if let places = results["place"] as? NSArray {
-                                    let place = places[0] as! NSDictionary
-                                    var woeid = Int((place["woeid"] as! NSString) as String)!
-                                    currWOEID = woeid
-                                }
-                            }
-                            */
+                             if let results = inner["results"] as? [String : Any] {
+                             if let places = results["place"] as? NSArray {
+                             let place = places[0] as! NSDictionary
+                             var woeid = Int((place["woeid"] as! NSString) as String)!
+                             currWOEID = woeid
+                             }
+                             }
+                             */
                         }
                     }
                 } catch {
                     print("Error deserializing JSON: \(error)")
                 }
-            }
-        }
-        task.resume()
-        /*
-        
-        let task = URLSession(configuration: .ephemeral).dataTask(with: req) { (data, response, error)
-            in
-            
-            if let error = error {
-                print(error)
-            }
-            else if let data = data {
-                var newData = String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :("
-                print(newData)
-                print(String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :(")
                 
-                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                print(json)
-
-                 for item in json! {
-                 if let inner = item.value as? [String: Any] {
-                 if let results = inner["results"] as? [String : Any] {
-                 if let places = results["place"] as? NSArray {
-                 let place = places[0] as! NSDictionary
-                 var woeid = Int((place["woeid"] as! NSString) as String)!
-                 currWOEID = woeid
-                 }
-                 }
-                 }
-                 }
-         
             }
         }
-*/
         
         task.resume()
     }
     
-    func dispatchFunc(location: String) {
+    func dispatchFunc() {
         let group = DispatchGroup()
+        var location = "United States"
         var currWOEID = -1
         // change spaces so they can work in URL
-        var locationChanged = location.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        location = location.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
         //-----------------------------
         group.enter()
         //------------------------------
@@ -107,7 +78,7 @@ class FirstViewController: UIViewController {
         func woeID() {
             // YAHOO WOEID API CODE
             let cc = (key: YaConsumerKey, secret: YaClientSecret)
-            let test = "https://query.yahooapis.com/v1/public/yql?q=select+*+from+geo.places+where+text%3D%22" + locationChanged + "%22&format=json"
+            let test = "https://query.yahooapis.com/v1/public/yql?q=select+*+from+geo.places+where+text%3D%22" + location + "%22&format=json"
             var req = URLRequest(url: URL(string: test)!)
             req.oAuthSign(method: "GET", consumerCredentials: cc)
             
@@ -122,10 +93,21 @@ class FirstViewController: UIViewController {
                         for item in json! {
                             if let inner = item.value as? [String: Any] {
                                 if let results = inner["results"] as? [String : Any] {
-                                    if let places = results["place"] as? NSArray {
-                                        let place = places[0] as! NSDictionary
-                                        var woeid = Int((place["woeid"] as! NSString) as String)!
+                                    let count = inner["count"] as? Int
+                                    if count == 1 {
+                                        let place = results as NSDictionary
+                                        var word = place["place"] as! NSDictionary
+                                        print ("WORD", word)
+                                        let woeid = Int((word["woeid"] as! NSString) as String)!
                                         currWOEID = woeid
+                                    } else {
+                                        print ("RESULTS", results)
+                                        if let places = results["place"] as? NSArray {
+                                            print ("PLACES", places)
+                                            let place = places[0] as! NSDictionary
+                                            let woeid = Int((place["woeid"] as! NSString) as String)!
+                                            currWOEID = woeid
+                                        }
                                     }
                                 }
                             }
@@ -195,6 +177,4 @@ class FirstViewController: UIViewController {
         }
         //-----------------------------------
     }
-    
-    
 }
