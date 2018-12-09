@@ -5,7 +5,6 @@
 //
 //  Created by Patrick Old on 12/6/18.
 //  Copyright © 2018 Michelle Ho. All rights reserved.
-
 import Foundation
 
 let apiKey = "IfftqnrrPXzFVReJyOYWpCkQ9"
