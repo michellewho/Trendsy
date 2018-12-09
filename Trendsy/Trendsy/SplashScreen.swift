@@ -17,7 +17,7 @@ class SplashScreen: UIViewController {
         super.viewDidLoad()
         let up = UISwipeGestureRecognizer(target : self, action : #selector(SplashScreen.upSwipe))
         up.direction = .up
-        self.myImageView.addGestureRecognizer(up)
+        self.myView.addGestureRecognizer(up)
         
     }
     

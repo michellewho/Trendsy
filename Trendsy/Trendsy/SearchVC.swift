@@ -55,10 +55,13 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = searchedElement[indexPath.row]
         } else if appData.selectedScope == 0 && appData.hashtags.count > indexPath.row {
             cell.textLabel?.text = appData.hashtags[indexPath.row]
+            cell.imageView?.image = nil
         } else if appData.selectedScope == 2 && appData.categoriesToSearch.count > indexPath.row {
             cell.textLabel?.text = appData.categoriesToSearch[indexPath.row]
+            cell.imageView?.image = appData.categoryImages[indexPath.row]
         } else {
             cell.textLabel?.text = appData.locations[indexPath.row]
+            cell.imageView?.image = nil
         }
         
         // Adds boarder to table cells
@@ -69,6 +72,14 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         let borderColor: UIColor = UIColor(red:0.72, green:0.76, blue:0.88, alpha:1.0)
         cell.layer.borderColor = borderColor.cgColor
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(appData.selectedScope == 2) {
+            return 75.0
+        } else {
+            return 50.0
+        }
     }
     
     // Tracks what user selects as interesting in the search function.

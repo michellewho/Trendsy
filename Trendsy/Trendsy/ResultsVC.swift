@@ -41,7 +41,12 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         
         cell.textLabel?.textAlignment = .center
-        cell.detailTextLabel?.textAlignment = .center
+        
+        var font = UIFont(name: "Thonburi-Light", size: 15)!
+        if(appData.selectedScope == 1) {
+            font = UIFont(name: "Thonburi-Light", size: 25)!
+        }
+        cell.textLabel?.font = font
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 4
@@ -54,7 +59,7 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130.0
+        return 100.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
