@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3270B81721BCDCE700EDBF83 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270B81621BCDCE700EDBF83 /* CustomCollectionViewCell.swift */; };
+		3270B81921BCEAAA00EDBF83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270B81821BCEAAA00EDBF83 /* ViewController.swift */; };
+		3270B81C21BCF08B00EDBF83 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270B81B21BCF08B00EDBF83 /* PhotoCell.swift */; };
+		3270B81E21BCF3FE00EDBF83 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270B81D21BCF3FE00EDBF83 /* PinterestLayout.swift */; };
 		3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDC21ACBE5A004181BF /* AppDelegate.swift */; };
 		3274CCDF21ACBE5A004181BF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDE21ACBE5A004181BF /* FirstViewController.swift */; };
 		3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCE021ACBE5A004181BF /* CategoryVC.swift */; };
@@ -23,6 +27,10 @@
 /* Begin PBXFileReference section */
 		0C1A31344B7DFAE0CD879960 /* Pods-Trendsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendsy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy.debug.xcconfig"; sourceTree = "<group>"; };
 		2AEF10E974F4B70852F571E8 /* Pods-Trendsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy.release.xcconfig"; sourceTree = "<group>"; };
+		3270B81621BCDCE700EDBF83 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		3270B81821BCEAAA00EDBF83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3270B81B21BCF08B00EDBF83 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		3270B81D21BCF3FE00EDBF83 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		3274CCD921ACBE5A004181BF /* Trendsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trendsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3274CCDC21ACBE5A004181BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3274CCDE21ACBE5A004181BF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +67,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3270B81A21BCF03F00EDBF83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3270B81B21BCF08B00EDBF83 /* PhotoCell.swift */,
+				3270B81D21BCF3FE00EDBF83 /* PinterestLayout.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3274CCD021ACBE5A004181BF = {
 			isa = PBXGroup;
 			children = (
@@ -80,10 +97,13 @@
 		3274CCDB21ACBE5A004181BF /* Trendsy */ = {
 			isa = PBXGroup;
 			children = (
+				3270B81A21BCF03F00EDBF83 /* Views */,
 				3274CCDC21ACBE5A004181BF /* AppDelegate.swift */,
 				3274CCDE21ACBE5A004181BF /* FirstViewController.swift */,
 				3274CCE021ACBE5A004181BF /* CategoryVC.swift */,
 				3274CCE221ACBE5A004181BF /* Main.storyboard */,
+				3270B81821BCEAAA00EDBF83 /* ViewController.swift */,
+				3270B81621BCDCE700EDBF83 /* CustomCollectionViewCell.swift */,
 				32919CDD21B7898F006C1557 /* AppData.swift */,
 				3274CCE521ACBE5C004181BF /* Assets.xcassets */,
 				3274CCE721ACBE5C004181BF /* LaunchScreen.storyboard */,
@@ -226,7 +246,11 @@
 				32919CE821B7938F006C1557 /* SearchVC.swift in Sources */,
 				3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */,
 				32919CE221B78D40006C1557 /* CustomTableViewCell.swift in Sources */,
+				3270B81921BCEAAA00EDBF83 /* ViewController.swift in Sources */,
+				3270B81721BCDCE700EDBF83 /* CustomCollectionViewCell.swift in Sources */,
 				3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */,
+				3270B81C21BCF08B00EDBF83 /* PhotoCell.swift in Sources */,
+				3270B81E21BCF3FE00EDBF83 /* PinterestLayout.swift in Sources */,
 				F262CD0C21BCA30D002F60A6 /* Constants.swift in Sources */,
 				3274CCDF21ACBE5A004181BF /* FirstViewController.swift in Sources */,
 				32919CDE21B7898F006C1557 /* AppData.swift in Sources */,
