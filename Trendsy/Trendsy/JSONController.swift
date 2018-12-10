@@ -1,78 +1,82 @@
 //
-//  JSONController.swift
+//  FirstViewController.swift
 //  Trendsy
 //
 //  Created by Michelle Ho on 11/26/18.
 //  Copyright © 2018 Michelle Ho. All rights reserved.
 //
-
 import UIKit
 import OhhAuth
 
-
 class JSONController: UIViewController {
     
-    var appData = AppData.shared
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        dispatchFunc()
-        
-        
+        //print("TEST")
+        //getTweetsWithHashtag(searchTopic: "SeduceMeIn4Words")
+        let value = getTweetsWithHashtag(searchTopic: "Sports", numTweetsReturned: 5)
+        print(value)
     }
     
-    func getTweetsWithHashtag(searchTopic: String) {
+    
+    func getTweetsWithHashtag(searchTopic: String, numTweetsReturned: Int) -> Array<(name: String, text: String, url: String)> {
         let cc = (key: apiKey, secret: apiSecret)
         let uc = (key: accessToken, secret: accessTokenSecret)
         //let search = "SeduceMeIn4Words"
-        
-        var req = URLRequest(url: URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=" + searchTopic + "&result_type=popular")!)
+        let searchValue = searchTopic.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        var req = URLRequest(url: URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=" + searchValue + "&result_type=popular")!)
         
         req.oAuthSign(method: "GET", consumerCredentials: cc, userCredentials: uc)
         
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
         let task = URLSession(configuration: .ephemeral).dataTask(with: req) { (data, response, error) in
-            
+            var arrayDataReturned = [(name: String, text: String, url: String)]()
             if let error = error {
                 print(error)
             }
             else if let data = data {
-                var newData = String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :("
-                print(newData)
-                print(String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :(")
                 
                 do {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                    for item in json! {
-                        print ("ITEM", item)
-                        if let inner = item.value as? [String: Any] {
-                            print ("INNER", inner)
-                            /*
-                             if let results = inner["results"] as? [String : Any] {
-                             if let places = results["place"] as? NSArray {
-                             let place = places[0] as! NSDictionary
-                             var woeid = Int((place["woeid"] as! NSString) as String)!
-                             currWOEID = woeid
-                             }
-                             }
-                             */
-                        }
+                    //print(json!["statuses"])
+                    let arrayObj = json!["statuses"] as? [[String : Any]]
+                    // GET NAME
+                    var i = 0
+                    while (i < numTweetsReturned) {
+                        // GET NAME
+                        let user = arrayObj![i]["user"] as? [String : Any]
+                        let name = user!["screen_name"] as? String ?? ""
+                        // GET TEXT
+                        let text = arrayObj![i]["text"] as? String ?? ""
+                        // GET URL
+                        let urlNum = arrayObj![i]["id_str"] as? String ?? ""
+                        let urlId = user!["id_str"] as? String ?? ""
+                        let url = "https://twitter.com/" + urlId + "/status/" + urlNum
+                        // ADD TO ARRAY
+                        arrayDataReturned.append((name: name, text: text, url: url))
+                        i = i + 1
                     }
                 } catch {
                     print("Error deserializing JSON: \(error)")
                 }
-                
+                TweetsReturned = arrayDataReturned
             }
+            dispatchGroup.leave()
+            //print(arrayDataReturned)
+            //print(TweetsReturned)
+            //print(type(of: TweetsReturned))
         }
-        
         task.resume()
+        dispatchGroup.wait()
+        return TweetsReturned
     }
     
-    func dispatchFunc() {
+    func dispatchFunc(givenLocation: String) -> Array<(name: String, url: String)>{
         let group = DispatchGroup()
-        var location = self.appData.location
         var currWOEID = -1
         // change spaces so they can work in URL
-        location = location.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        let location = givenLocation.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
         //-----------------------------
         group.enter()
         //------------------------------
@@ -145,16 +149,17 @@ class JSONController: UIViewController {
                 else if let data = data {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]]
-                        print ("JSON RESPONSE", json)
-                        for results in json! {
-                            if let trends = results["trends"] as? NSArray {
-                                let swiftArray: [Any] = trends.compactMap({ $0 })
-                                //print(swiftArray)
-                                for item in swiftArray {
-                                    if let objItem = item as? [String : Any] {
-                                        let n = objItem["name"] as? String ?? ""
-                                        let u = objItem["url"] as? String ?? ""
-                                        arrayDataReturned.append((name: n, url: u))
+                        if(json != nil) {
+                            for results in json! {
+                                if let trends = results["trends"] as? NSArray {
+                                    let swiftArray: [Any] = trends.compactMap({ $0 })
+                                    //print(swiftArray)
+                                    for item in swiftArray {
+                                        if let objItem = item as? [String : Any] {
+                                            let n = objItem["name"] as? String ?? ""
+                                            let u = objItem["url"] as? String ?? ""
+                                            arrayDataReturned.append((name: n, url: u))
+                                        }
                                     }
                                 }
                             }
@@ -177,6 +182,7 @@ class JSONController: UIViewController {
         group.notify(queue: .main) {
             print("Both functions complete")
         }
+        return Hashtags
         //-----------------------------------
     }
 }
