@@ -84,7 +84,12 @@ extension FeedVC: UICollectionViewDataSource {
 //        let instanceOfJson = JSONController()
 //        let jsonData = instanceOfJson.dispatchFunc(givenLocation: appData.location)
 //        appData.feedLocationData = jsonData
-        cell.tweet.text = appData.feedLocationData[indexPath.item].name.uppercased()
+        var tweetText = appData.feedLocationData[indexPath.item].name.uppercased()
+        if(tweetText.prefix(1) != "#") {
+            tweetText.insert("#", at: tweetText.startIndex)
+        }
+        
+        cell.tweet.text = tweetText
         return cell
     }
     

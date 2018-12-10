@@ -39,6 +39,7 @@ extension CategoryVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
         if(appData.categories.count > indexPath.row) {
             cell.textLabel?.text = appData.categories[indexPath.row]
+            cell.textLabel?.font = UIFont(name: "Avenir Next", size: 16)
         }
         return cell
     }

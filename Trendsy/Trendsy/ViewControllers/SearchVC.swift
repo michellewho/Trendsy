@@ -71,6 +71,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = appData.locations[indexPath.row]
             cell.imageView?.image = nil
         }
+        cell.textLabel?.font = UIFont(name: "Avenir Next", size: 16)
         
         // Adds boarder to table cells
         cell.layer.masksToBounds = true

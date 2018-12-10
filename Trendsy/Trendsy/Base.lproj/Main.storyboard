@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZSn-tt-4l1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZSn-tt-4l1">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,7 +83,7 @@
                                     <outlet property="delegate" destination="6sH-wo-TPL" id="VIQ-0Y-X44"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search a city or country!" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8S-pm-45N">
+                            <searchBar contentMode="redraw" placeholder="Search a city or country!" showsCancelButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8S-pm-45N">
                                 <rect key="frame" x="0.0" y="140" width="414" height="100"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.60080152750000004" green="0.67407667640000002" blue="0.89397472140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -270,6 +270,7 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.65681749099999998" green="0.74325960040000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="350-Em-QbR" kind="relationship" relationship="viewControllers" id="rqc-d9-bbk"/>
@@ -530,15 +531,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="category" width="40" height="40"/>
-        <image name="feed" width="40" height="44"/>
+        <image name="category" width="20" height="20"/>
+        <image name="feed" width="20" height="22"/>
         <image name="logo" width="276" height="207"/>
         <image name="placeholder" width="1200" height="1200"/>
-        <image name="search" width="40" height="40"/>
+        <image name="search" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dn9-K8-hIX"/>
-        <segue reference="oFh-Fq-prq"/>
+        <segue reference="lzU-1b-eKA"/>
+        <segue reference="q6S-hE-2RS"/>
         <segue reference="lCv-DT-ZzF"/>
         <segue reference="fZn-do-oaa"/>
     </inferredMetricsTieBreakers>
