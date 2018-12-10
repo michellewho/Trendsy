@@ -18,7 +18,6 @@ class JSONController: UIViewController {
         print(value)
     }
     
-    
     func getTweetsWithHashtag(searchTopic: String, numTweetsReturned: Int) -> Array<(name: String, text: String, url: String)> {
         let cc = (key: apiKey, secret: apiSecret)
         let uc = (key: accessToken, secret: accessTokenSecret)
@@ -46,6 +45,7 @@ class JSONController: UIViewController {
                     while (i < numTweetsReturned) {
                         // GET NAME
                         let user = arrayObj![i]["user"] as? [String : Any]
+                 
                         let name = user!["screen_name"] as? String ?? ""
                         // GET TEXT
                         let text = arrayObj![i]["text"] as? String ?? ""

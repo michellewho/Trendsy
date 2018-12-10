@@ -12,7 +12,7 @@ import UIKit
 class AppData: NSObject {
     static var shared = AppData()
     
-    open var location = "New York City"
+    open var location = "Seattle"
     
     open var categories = ["Flynn", "#SDLive", "Kevin Hart", "#VoiceSaveDeAndre", "Auston Matthews", "#TheFlash", "#SNLChristmas", "#BelowDeck", "Ryan Reaves", "Mike Locksley", "Republican Brad Raffensperger", "Chris Collins", "Les Moonves", "Winston Moss", "Jordan Poole", "The Suns", "Jakub Vrana", "Kelly Bryant", "Zavier Simpson", "Weekly Standard"]
     
@@ -31,4 +31,8 @@ class AppData: NSObject {
     open var specificTweetText = [String]()
     open var specificTweetLinks = [String]()
     
+    open var feedLocationData = Array<(name: String, url: String)>()
+//    open var hashTagName = [String]()
+//    open var hashTagText = [String]()
+//    open var hashTagLink = [String]()
 }
