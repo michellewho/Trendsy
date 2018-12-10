@@ -292,11 +292,56 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="JeS-eZ-tDI" id="tY7-bF-ReR"/>
+                        <segue destination="zbx-sc-rRM" kind="show" identifier="segueSpecificResults" id="cVy-ov-Inl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YgD-bq-55b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1904.8" y="1110.5911330049262"/>
+        </scene>
+        <!--Specific Results-->
+        <scene sceneID="brJ-ET-jKI">
+            <objects>
+                <viewController id="zbx-sc-rRM" customClass="SpecificResults" customModule="Trendsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pbo-R1-aQf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O1N-EC-3Xl">
+                                <rect key="frame" x="0.0" y="116" width="375" height="696"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="specificTweetCell" id="A8h-lR-GJI">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A8h-lR-GJI" id="d3m-HD-iwB">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zbx-sc-rRM" id="pGB-Xy-RDH"/>
+                                    <outlet property="delegate" destination="zbx-sc-rRM" id="BMh-yF-xGr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="O1N-EC-3Xl" secondAttribute="bottom" id="8tk-z3-mPO"/>
+                            <constraint firstItem="O1N-EC-3Xl" firstAttribute="leading" secondItem="O1j-xd-92x" secondAttribute="leading" id="gw3-Sx-EkF"/>
+                            <constraint firstItem="O1N-EC-3Xl" firstAttribute="top" secondItem="O1j-xd-92x" secondAttribute="top" constant="72" id="un9-op-Spq"/>
+                            <constraint firstItem="O1N-EC-3Xl" firstAttribute="trailing" secondItem="O1j-xd-92x" secondAttribute="trailing" id="vN1-VD-2CH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O1j-xd-92x"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="O1N-EC-3Xl" id="bK4-zI-UON"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zcf-Ac-cA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2887.1999999999998" y="1111.3300492610838"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -344,7 +389,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trendsy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jh-xo-PTn">
-                                        <rect key="frame" x="54" y="187" width="266" height="247"/>
+                                        <rect key="frame" x="54" y="187" width="267" height="247"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="247" id="ADT-fJ-wmx"/>
                                         </constraints>
@@ -353,7 +398,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Up to See Whats Trending!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymo-ry-kGj">
-                                        <rect key="frame" x="60" y="650" width="254" height="50"/>
+                                        <rect key="frame" x="60.666666666666657" y="650" width="253.99999999999997" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="1Ym-Yy-MsY"/>
                                             <constraint firstAttribute="width" constant="254" id="Ejx-cj-hu8"/>
@@ -366,21 +411,20 @@
                                 <color key="backgroundColor" red="0.60080152750000004" green="0.67407667640000002" blue="0.89397472140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstItem="7jh-xo-PTn" firstAttribute="leading" secondItem="q7m-4F-qjv" secondAttribute="leading" constant="54" id="2bc-Ez-5Vh"/>
-                                    <constraint firstAttribute="bottom" secondItem="ymo-ry-kGj" secondAttribute="bottom" constant="112" id="5GO-ar-TbS"/>
-                                    <constraint firstItem="7jh-xo-PTn" firstAttribute="top" secondItem="q7m-4F-qjv" secondAttribute="top" constant="187" id="9rb-Fj-yuY"/>
-                                    <constraint firstItem="ymo-ry-kGj" firstAttribute="centerX" secondItem="q7m-4F-qjv" secondAttribute="centerX" id="AUO-Zb-kD0"/>
                                     <constraint firstItem="7jh-xo-PTn" firstAttribute="centerX" secondItem="ymo-ry-kGj" secondAttribute="centerX" id="NdX-IN-5aB"/>
-                                    <constraint firstItem="ymo-ry-kGj" firstAttribute="leading" secondItem="q7m-4F-qjv" secondAttribute="leading" constant="60" id="hPc-fV-UiB"/>
+                                    <constraint firstItem="7jh-xo-PTn" firstAttribute="centerX" secondItem="q7m-4F-qjv" secondAttribute="centerX" id="cPj-Tj-h4G"/>
+                                    <constraint firstItem="7jh-xo-PTn" firstAttribute="leading" secondItem="q7m-4F-qjv" secondAttribute="leading" constant="54" id="eTB-Py-CyH"/>
+                                    <constraint firstItem="7jh-xo-PTn" firstAttribute="top" secondItem="q7m-4F-qjv" secondAttribute="top" constant="187" id="j7d-E0-T83"/>
+                                    <constraint firstAttribute="bottom" secondItem="ymo-ry-kGj" secondAttribute="bottom" constant="112" id="qPa-hn-0qR"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="q7m-4F-qjv" firstAttribute="leading" secondItem="Isl-ah-qCm" secondAttribute="leading" id="NZp-Hq-mbb"/>
-                            <constraint firstAttribute="bottom" secondItem="q7m-4F-qjv" secondAttribute="bottom" id="niS-WA-TSE"/>
-                            <constraint firstItem="q7m-4F-qjv" firstAttribute="top" secondItem="Isl-ah-qCm" secondAttribute="top" id="pJd-4z-ff5"/>
-                            <constraint firstAttribute="trailing" secondItem="q7m-4F-qjv" secondAttribute="trailing" id="r4Y-ec-Yra"/>
+                            <constraint firstAttribute="bottom" secondItem="q7m-4F-qjv" secondAttribute="bottom" id="4iR-e3-AXs"/>
+                            <constraint firstAttribute="trailing" secondItem="q7m-4F-qjv" secondAttribute="trailing" id="GH5-Xu-R7r"/>
+                            <constraint firstItem="q7m-4F-qjv" firstAttribute="top" secondItem="Isl-ah-qCm" secondAttribute="top" id="Kcw-hB-wnK"/>
+                            <constraint firstItem="q7m-4F-qjv" firstAttribute="leading" secondItem="Isl-ah-qCm" secondAttribute="leading" id="VJN-dN-T5Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EqG-oq-eds"/>
                     </view>
@@ -425,7 +469,6 @@
         <image name="trendsy_2_logo" width="215" height="382.07998657226562"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ba1-cN-caK"/>
         <segue reference="L25-Rm-iKR"/>
     </inferredMetricsTieBreakers>
 </document>

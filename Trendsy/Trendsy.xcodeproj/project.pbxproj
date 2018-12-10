@@ -10,6 +10,7 @@
 		117C126121BC98E800ABA5CF /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C126021BC98E800ABA5CF /* ResultsVC.swift */; };
 		117C126321BCAABA00ABA5CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C126221BCAABA00ABA5CF /* Constants.swift */; };
 		117C126521BD969100ABA5CF /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C126421BD969100ABA5CF /* SplashScreen.swift */; };
+		117C126721BDE32400ABA5CF /* SpecificResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C126621BDE32400ABA5CF /* SpecificResults.swift */; };
 		3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDC21ACBE5A004181BF /* AppDelegate.swift */; };
 		3274CCDF21ACBE5A004181BF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCDE21ACBE5A004181BF /* FirstViewController.swift */; };
 		3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274CCE021ACBE5A004181BF /* CategoryVC.swift */; };
@@ -27,6 +28,7 @@
 		117C126021BC98E800ABA5CF /* ResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
 		117C126221BCAABA00ABA5CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		117C126421BD969100ABA5CF /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		117C126621BDE32400ABA5CF /* SpecificResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificResults.swift; sourceTree = "<group>"; };
 		2AEF10E974F4B70852F571E8 /* Pods-Trendsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trendsy/Pods-Trendsy.release.xcconfig"; sourceTree = "<group>"; };
 		3274CCD921ACBE5A004181BF /* Trendsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trendsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3274CCDC21ACBE5A004181BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				117C126021BC98E800ABA5CF /* ResultsVC.swift */,
 				117C126221BCAABA00ABA5CF /* Constants.swift */,
 				117C126421BD969100ABA5CF /* SplashScreen.swift */,
+				117C126621BDE32400ABA5CF /* SpecificResults.swift */,
 			);
 			path = Trendsy;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			files = (
 				117C126521BD969100ABA5CF /* SplashScreen.swift in Sources */,
 				32919CE821B7938F006C1557 /* SearchVC.swift in Sources */,
+				117C126721BDE32400ABA5CF /* SpecificResults.swift in Sources */,
 				3274CCE121ACBE5A004181BF /* CategoryVC.swift in Sources */,
 				32919CE221B78D40006C1557 /* CustomTableViewCell.swift in Sources */,
 				3274CCDD21ACBE5A004181BF /* AppDelegate.swift in Sources */,

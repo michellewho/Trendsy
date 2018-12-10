@@ -20,7 +20,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        searchBar.scopeButtonTitles = ["Hashtags", "Location", "Categories"]
+        searchBar.scopeButtonTitles = ["Location", "Categories"]
         appData.selectedScope = 0
     }
     
@@ -40,8 +40,6 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         if(isSearching) {
             return searchedElement.count
         } else if (appData.selectedScope == 0) {
-            return appData.hashtags.count
-        } else if (appData.selectedScope == 1) {
             return appData.locations.count
         } else {
             return appData.categoriesToSearch.count
@@ -53,10 +51,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         if(isSearching) {
             cell.textLabel?.text = searchedElement[indexPath.row]
-        } else if appData.selectedScope == 0 && appData.hashtags.count > indexPath.row {
-            cell.textLabel?.text = appData.hashtags[indexPath.row]
-            cell.imageView?.image = nil
-        } else if appData.selectedScope == 2 && appData.categoriesToSearch.count > indexPath.row {
+        } else if appData.selectedScope == 1 && appData.categoriesToSearch.count > indexPath.row {
             cell.textLabel?.text = appData.categoriesToSearch[indexPath.row]
             cell.imageView?.image = appData.categoryImages[indexPath.row]
         } else {
@@ -92,7 +87,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         appData.top5 = []
         
         // get data for location
-        if(appData.selectedScope == 1) {
+        if(appData.selectedScope == 0) {
             
             // Looks at Location Data from dispatchFunc
             var currentCell = ""
@@ -116,27 +111,28 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
                 }
                 performSegue(withIdentifier: "goToResults", sender: self)
             }
-        // get data for hashtags
-        } else if (appData.selectedScope == 0) {
-            var index = 0
-            while index <= 5 {
-                appData.top5Username.append("Sample Username")
-                appData.links.append("https://twitter.com/kyliecosmetics/status/1071123613745475584")
-                appData.top5.append("Sample Tweet")
-                index += 1
-            }
-            performSegue(withIdentifier: "goToResults", sender: self)
-        // get data for categories
         } else {
-            var index = 0
-            while index <= 5 {
-                appData.top5Username.append("Sample Username")
-                appData.links.append("https://twitter.com/kyliecosmetics/status/1071123613745475584")
-                appData.top5.append("Sample Tweet")
-                index += 1
+            // Looks at Location Data from dispatchFunc
+            var currentCell = ""
+            if(isSearching) {
+                currentCell = searchedElement[indexPath.row]
+            } else {
+                currentCell = appData.categoriesToSearch[indexPath.row]
             }
-            performSegue(withIdentifier: "goToResults", sender: self)
-            
+            let jsonData = instanceOfJson.getTweetsWithHashtag(searchTopic: currentCell, numTweetsReturned: 5)
+            var index = 0
+            if(jsonData.count == 0) {
+                let alert = UIAlertController(title: "Sorry!", message: "No Twitter Data for " + currentCell, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Search Another Term", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                while index < 5 {
+                    appData.top5Username.append(jsonData[index].name)
+                    appData.top5.append(jsonData[index].text)
+                    index += 1
+                }
+                performSegue(withIdentifier: "goToResults", sender: self)
+           }
         }
     }
 }
@@ -145,11 +141,8 @@ extension SearchVC: UISearchBarDelegate {
     
     // Function tracks if the user is searching
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //Hashtags
-        if(appData.selectedScope == 0){
-             searchedElement = appData.hashtags.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        // Location
-        }else if(appData.selectedScope == 1) {
+        // Locations
+        if(appData.selectedScope == 0) {
             searchedElement = appData.locations.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
 
         // Categories

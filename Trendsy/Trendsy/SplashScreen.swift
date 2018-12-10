@@ -13,6 +13,7 @@ class SplashScreen: UIViewController {
     @IBOutlet weak var myView: UIView!
     
     @IBOutlet weak var myImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let up = UISwipeGestureRecognizer(target : self, action : #selector(SplashScreen.upSwipe))

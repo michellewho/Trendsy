@@ -19,4 +19,5 @@ var StateID = 0
 var CityID = 0
 
 var Hashtags = [(name: String, url: String)]()
+var TweetsReturned = [(name: String, text: String, url: String)]()
 

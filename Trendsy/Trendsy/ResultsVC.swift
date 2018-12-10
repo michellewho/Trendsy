@@ -33,9 +33,10 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
     
     // Function Populates rows with data depending on user selections/searches
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "resultsCell")
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "resultsCell")
         cell.textLabel?.text = appData.top5Username [indexPath.row]
         cell.detailTextLabel?.text = appData.top5[indexPath.row]
+        
         
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -64,9 +65,28 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       // Open tweet in twitter
-        let link = appData.links[indexPath.row]
-        if let url = URL(string: link){
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        // Looks at Location Data from dispatchFunc
+        appData.specificTweets = []
+        appData.specificTweetText = []
+        appData.specificTweetLinks = []
+        
+        let currentCell = appData.top5Username[indexPath.row]
+        let instanceOfJson = FirstViewController()
+        let jsonData = instanceOfJson.getTweetsWithHashtag(searchTopic: currentCell, numTweetsReturned: 5)
+        var index = 0
+        if(jsonData.count == 0) {
+            let alert = UIAlertController(title: "Sorry!", message: "No Twitter Data for " + currentCell, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Search Another Term", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            while index < 5 {
+                appData.specificTweets.append(jsonData[index].name)
+                appData.specificTweetText.append(jsonData[index].text)
+                appData.specificTweetLinks.append(jsonData[index].url)
+                print(jsonData[index].url)
+                index += 1
+            }
+            performSegue(withIdentifier: "segueSpecificResults", sender: self)
         }
     }
 }

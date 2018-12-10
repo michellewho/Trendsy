@@ -18,13 +18,16 @@ class AppData: NSObject {
 
     open var categoriesToSearch = ["Sports", "Movies", "Fashion", "Technology",  "Weather", "News", "Politics", "Education", "Travel", "Food"]
     var categoryImages : [UIImage] = [UIImage(named: "sports")!, UIImage(named: "movie")!, UIImage(named: "fashion")!, UIImage(named: "technology")!, UIImage(named: "weather")!, UIImage(named: "news")!, UIImage(named: "politics")!, UIImage(named: "education")!, UIImage(named: "travel")!, UIImage(named: "food")!]
-    
-    open var hashtags = ["#SDLive", "#TheFlash", "#SNLChristmas", "#BelowDeck", "#Kardashians", "#lmfao", "#cats", "#dogs", "#michelle"]
+
     open var top5 = [String]()
     open var top5Username = [String]()
     open var links = [String]()
     open var searchRecents = [String]()
     open var selectedScope = Int()
+    
+    open var specificTweets = [String]()
+    open var specificTweetText = [String]()
+    open var specificTweetLinks = [String]()
     
     
 }
