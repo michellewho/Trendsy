@@ -41,9 +41,11 @@ class SearchVC: UIViewController {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         searchBar.endEditing(true)
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
     }
+
 }
 
 extension SearchVC: UITableViewDelegate, UITableViewDataSource {
@@ -63,10 +65,8 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         if(isSearching) {
             cell.textLabel?.text = searchedElement[indexPath.row]
-            
         } else if appData.selectedScope == 1 && appData.categoriesToSearch.count > indexPath.row {
             cell.textLabel?.text = appData.categoriesToSearch[indexPath.row]
-            cell.imageView?.image = appData.categoryImages[indexPath.row]
         } else {
             cell.textLabel?.text = appData.locations[indexPath.row]
             cell.imageView?.image = nil
@@ -147,8 +147,6 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
                     appData.specificTweets.append(jsonData[index].name)
                     appData.specificTweetText.append(jsonData[index].text)
                     appData.specificTweetLinks.append(jsonData[index].url)
-//                    appData.top5Username.append(jsonData[index].name)
-//                    appData.top5.append(jsonData[index].text)
                     index += 1
                 }
                 performSegue(withIdentifier: "goToCatResult", sender: self)
@@ -164,12 +162,9 @@ extension SearchVC: UISearchBarDelegate {
         // Locations
         if(appData.selectedScope == 0) {
             searchedElement = appData.locations.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
-            
-            // Categories
         } else {
             searchedElement = appData.categoriesToSearch.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
         }
-        
         isSearching = true
         tableView.reloadData()
     }
@@ -178,7 +173,28 @@ extension SearchVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         isSearching = false
         appData.selectedScope = selectedScope
+        if(selectedScope == 0) {
+            searchBar.placeholder = "Type city or country name!"
+        } else {
+            searchBar.placeholder = "Type category name!"
+        }
         tableView.reloadData()
     }
+    
+    
+    // Function used to pass in any location data or category data even if it is not listed
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        appData.searchButtonClicked = true
+        searchedElement = []
+        if(appData.selectedScope == 0) {
+            appData.locations.append(String(searchBar.text!))
+        }else{
+            appData.categoriesToSearch.append(String(searchBar.text!))
+        }
+        searchedElement.append(String(searchBar.text!))
+        isSearching = true
+        tableView.reloadData()
+    }
+    
     
 }

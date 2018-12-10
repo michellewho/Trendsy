@@ -37,7 +37,6 @@ class AppData: NSObject {
     open var specificTweetLinks = [String]()
     
     open var feedLocationData = Array<(name: String, url: String)>()
-//    open var hashTagName = [String]()
-//    open var hashTagText = [String]()
-//    open var hashTagLink = [String]()
+    open var searchButtonClicked = false
+
 }

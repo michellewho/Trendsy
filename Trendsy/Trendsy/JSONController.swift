@@ -15,10 +15,7 @@ class JSONController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("TEST")
-        //getTweetsWithHashtag(searchTopic: "SeduceMeIn4Words")
-        let value = getTweetsWithHashtag(searchTopic: "Sports", numTweetsReturned: 5)
-        print(value)
+        
     }
     
     func getTweetsWithHashtag(searchTopic: String, numTweetsReturned: Int) -> Array<(name: String, text: String, url: String)> {
@@ -35,13 +32,11 @@ class JSONController: UIViewController {
         let task = URLSession(configuration: .ephemeral).dataTask(with: req) { (data, response, error) in
             var arrayDataReturned = [(name: String, text: String, url: String)]()
             if let error = error {
-                print(error)
             }
             else if let data = data {
                 
                 do {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                    print("status" , json!["statuses"])
                     let arrayObj = json!["statuses"] as? [[String : Any]]
                     self.appData.numShown = (arrayObj?.count)!
                     // GET NAME
@@ -110,13 +105,10 @@ class JSONController: UIViewController {
                                     if count == 1 {
                                         let place = results as NSDictionary
                                         var word = place["place"] as! NSDictionary
-                                        print ("WORD", word)
                                         let woeid = Int((word["woeid"] as! NSString) as String)!
                                         currWOEID = woeid
                                     } else {
-                                        print ("RESULTS", results)
                                         if let places = results["place"] as? NSArray {
-                                            print ("PLACES", places)
                                             let place = places[0] as! NSDictionary
                                             let woeid = Int((place["woeid"] as! NSString) as String)!
                                             currWOEID = woeid
@@ -184,8 +176,6 @@ class JSONController: UIViewController {
         
         twitterData()
         group.wait()
-        print(CityID)
-        print("HASHTAGS", Hashtags)
         group.notify(queue: .main) {
             print("Both functions complete")
         }

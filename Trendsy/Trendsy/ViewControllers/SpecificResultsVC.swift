@@ -17,24 +17,9 @@ class SpecificResultsVC: UIViewController {
         
         super.viewDidLoad()
         tableView.delegate = self
-        
-//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipe))
-//        swipeRight.direction = .right
-//        self.view.addGestureRecognizer(swipeRight)
+        appData.searchButtonClicked = false
     }
-//
-//    @objc func swipe(sender: UISwipeGestureRecognizer) {
-//        if (appData.inCat) {
-//            if (sender.direction == .right) {
-//                performSegue(withIdentifier: "backToBrowse", sender: self)
-//            }
-//        } else {
-//            if (sender.direction == .right) {
-//                performSegue(withIdentifier: "backToTopics", sender: self)
-//            }
-//        }
-//
-//    }
+
 }
 
 extension SpecificResultsVC: UITableViewDelegate, UITableViewDataSource {

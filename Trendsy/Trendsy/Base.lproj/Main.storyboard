@@ -83,7 +83,7 @@
                                     <outlet property="delegate" destination="6sH-wo-TPL" id="VIQ-0Y-X44"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8S-pm-45N">
+                            <searchBar contentMode="redraw" placeholder="Search a city or country!" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8S-pm-45N">
                                 <rect key="frame" x="0.0" y="140" width="414" height="100"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.60080152750000004" green="0.67407667640000002" blue="0.89397472140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
