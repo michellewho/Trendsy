@@ -11,6 +11,8 @@ import OhhAuth
 
 
 class JSONController: UIViewController {
+    
+    var appData = AppData.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +69,7 @@ class JSONController: UIViewController {
     
     func dispatchFunc() {
         let group = DispatchGroup()
-        var location = "United States"
+        var location = self.appData.location
         var currWOEID = -1
         // change spaces so they can work in URL
         location = location.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)

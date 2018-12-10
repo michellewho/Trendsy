@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class FeedVC: UIViewController {
 
@@ -14,6 +15,8 @@ class FeedVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var appData = AppData.shared
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +26,10 @@ class FeedVC: UIViewController {
         }
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
       
-
-        // Do any additional setup after loading the view.
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
     }
     
     // MARK: Properties
@@ -64,3 +69,35 @@ extension FeedVC: UICollectionViewDataSource {
     
     
 }
+
+extension FeedVC: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
+            print("\(lat),\(long)")
+            
+            let geoCoder = CLGeocoder()
+            let location = locations.last
+            geoCoder.reverseGeocodeLocation(location!, completionHandler:
+                {
+                    placemarks, error -> Void in
+                    
+                    // Place details
+                    guard let placeMark = placemarks?.first else { return }
+                    
+                    if let city = placeMark.subAdministrativeArea {
+                        self.appData.location = city
+                        print(city)
+                    }
+            })
+            
+        } else {
+            print("No coordinates")
+        }
+        
+    }
+    
+    func locationManager(_ mantager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+}
+

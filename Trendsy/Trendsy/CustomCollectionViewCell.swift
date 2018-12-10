@@ -12,5 +12,4 @@ class CustomCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var label: UILabel!
     
-    
 }

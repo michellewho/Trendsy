@@ -12,8 +12,6 @@ import CoreLocation
 class CategoryVC: UIViewController, UITableViewDataSource {
     
     var appData = AppData.shared
-    let locationManager = CLLocationManager()
-    var searchCity = "Seattle"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,15 +19,6 @@ class CategoryVC: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-    
-    }
-    
-    
-    @IBAction func button(_ sender: Any) {
-        locationManager.requestLocation()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,35 +39,3 @@ class CategoryVC: UIViewController, UITableViewDataSource {
         return cell
     }
 }
-
-extension CategoryVC: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
-            print("\(lat),\(long)")
-            
-            let geoCoder = CLGeocoder()
-            let location = locations.last
-            geoCoder.reverseGeocodeLocation(location!, completionHandler:
-                {
-                    placemarks, error -> Void in
-                    
-                    // Place details
-                    guard let placeMark = placemarks?.first else { return }
-                    
-                    if let city = placeMark.subAdministrativeArea {
-                        self.searchCity = city
-                        print(city)
-                    }
-            })
-            
-        } else {
-            print("No coordinates")
-        }
-   
-    }
-    
-    func locationManager(_ mantager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-}
-

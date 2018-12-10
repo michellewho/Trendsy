@@ -116,8 +116,8 @@
 		3293F52121BDE03B00854DE6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3274CCE021ACBE5A004181BF /* CategoryVC.swift */,
 				3270B81821BCEAAA00EDBF83 /* FeedVC.swift */,
+				3274CCE021ACBE5A004181BF /* CategoryVC.swift */,
 				32919CE721B7938F006C1557 /* SearchVC.swift */,
 			);
 			path = ViewControllers;

@@ -12,5 +12,8 @@ import UIKit
 class AppData: NSObject {
     static var shared = AppData()
     
+    open var location = "New York City"
+    
     open var categories = ["Flynn", "#SDLive", "Kevin Hart", "#VoiceSaveDeAndre", "Auston Matthews", "#TheFlash", "#SNLChristmas", "#BelowDeck", "Ryan Reaves", "Mike Locksley", "Republican Brad Raffensperger", "Chris Collins", "Les Moonves", "Winston Moss", "Jordan Poole", "The Suns", "Jakub Vrana", "Kelly Bryant", "Zavier Simpson", "Weekly Standard"]
+    
 }
