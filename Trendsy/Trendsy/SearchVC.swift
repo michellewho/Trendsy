@@ -11,6 +11,7 @@ import UIKit
 class SearchVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
     var appData = AppData.shared
     var isBlue = false
     

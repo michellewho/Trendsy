@@ -469,6 +469,7 @@
         <image name="trendsy_2_logo" width="215" height="382.07998657226562"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ba1-cN-caK"/>
         <segue reference="L25-Rm-iKR"/>
     </inferredMetricsTieBreakers>
 </document>
