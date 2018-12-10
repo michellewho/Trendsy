@@ -12,7 +12,12 @@ import UIKit
 class AppData: NSObject {
     static var shared = AppData()
     
+    open var inBrowse = false
+    open var inSearch = false
+    open var inCat = false
     open var location = "Seattle"
+    
+    open var numShown = 0
     
     open var categories = ["Flynn", "#SDLive", "Kevin Hart", "#VoiceSaveDeAndre", "Auston Matthews", "#TheFlash", "#SNLChristmas", "#BelowDeck", "Ryan Reaves", "Mike Locksley", "Republican Brad Raffensperger", "Chris Collins", "Les Moonves", "Winston Moss", "Jordan Poole", "The Suns", "Jakub Vrana", "Kelly Bryant", "Zavier Simpson", "Weekly Standard"]
     

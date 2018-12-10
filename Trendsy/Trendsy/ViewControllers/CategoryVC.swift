@@ -19,6 +19,9 @@ class CategoryVC: UIViewController {
         super.viewDidLoad()
         tableView.reloadData()
         tableView.dataSource = self
+        
+        appData.inCat = true
+        appData.inSearch = false
     }
 }
 

@@ -21,7 +21,17 @@ class ResultsVC: UIViewController {
         tableView.delegate = self
         print("entered")
         
+//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipe))
+//        swipeRight.direction = .right
+//        self.view.addGestureRecognizer(swipeRight)
     }
+    
+//    @objc func swipe(sender: UISwipeGestureRecognizer) {
+//        if (sender.direction == .right) {
+//            performSegue(withIdentifier: "backToSearch", sender: self)
+//        }
+//    }
+    
     
 }
 
@@ -34,8 +44,10 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
     // Function Populates rows with data depending on user selections/searches
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "resultsCell")
-        cell.textLabel?.text = appData.top5Username [indexPath.row]
+        cell.textLabel?.text = appData.top5Username[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "Avenir Next-Bold", size: 16)
         cell.detailTextLabel?.text = appData.top5[indexPath.row]
+        cell.detailTextLabel?.font = UIFont(name: "Avenir Next", size: 13)
         
         
         cell.detailTextLabel?.numberOfLines = 0
@@ -76,7 +88,10 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
         if(firstChar == "#") {
             var splitCell = currentCell.split(separator: "#")
             currentCell = String(splitCell[0])
+            print(currentCell)
         }
+        currentCell = currentCell.folding(options: .diacriticInsensitive, locale: .current)
+        
         let jsonData = instanceOfJson.getTweetsWithHashtag(searchTopic: currentCell, numTweetsReturned: 5)
         var index = 0
         if(jsonData.count == 0) {
@@ -84,11 +99,13 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(UIAlertAction(title: "Search Another Term", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
-            while index < 5 {
-                appData.specificTweets.append(jsonData[index].name)
-                appData.specificTweetText.append(jsonData[index].text)
-                appData.specificTweetLinks.append(jsonData[index].url)
-                print(jsonData[index].url)
+            while index < appData.numShown {
+                if (index < 5) {
+                    appData.specificTweets.append(jsonData[index].name)
+                    appData.specificTweetText.append(jsonData[index].text)
+                    appData.specificTweetLinks.append(jsonData[index].url)
+                    print(jsonData[index].url)
+                }
                 index += 1
             }
             performSegue(withIdentifier: "segueSpecificResults", sender: self)

@@ -31,6 +31,9 @@ class SearchVC: UIViewController {
         searchBar.delegate = self
         searchBar.scopeButtonTitles = ["Location", "Categories"]
         appData.selectedScope = 0
+        
+        appData.inCat = false
+        appData.inSearch = true
     }
     
     // Functions make the keyboard slide away when user decides to scroll
@@ -60,6 +63,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         if(isSearching) {
             cell.textLabel?.text = searchedElement[indexPath.row]
+            
         } else if appData.selectedScope == 1 && appData.categoriesToSearch.count > indexPath.row {
             cell.textLabel?.text = appData.categoriesToSearch[indexPath.row]
             cell.imageView?.image = appData.categoryImages[indexPath.row]
@@ -94,6 +98,10 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         appData.top5Username = []
         appData.links = []
         appData.top5 = []
+        
+        appData.specificTweets = []
+        appData.specificTweetText = []
+        appData.specificTweetLinks = []
         
         // get data for location
         if(appData.selectedScope == 0) {
@@ -136,11 +144,14 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 while index < 5 {
-                    appData.top5Username.append(jsonData[index].name)
-                    appData.top5.append(jsonData[index].text)
+                    appData.specificTweets.append(jsonData[index].name)
+                    appData.specificTweetText.append(jsonData[index].text)
+                    appData.specificTweetLinks.append(jsonData[index].url)
+//                    appData.top5Username.append(jsonData[index].name)
+//                    appData.top5.append(jsonData[index].text)
                     index += 1
                 }
-                performSegue(withIdentifier: "goToResults", sender: self)
+                performSegue(withIdentifier: "goToCatResult", sender: self)
             }
         }
     }

@@ -10,6 +10,9 @@ import OhhAuth
 
 class JSONController: UIViewController {
     
+    var appData = AppData.shared
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //print("TEST")
@@ -38,23 +41,27 @@ class JSONController: UIViewController {
                 
                 do {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                    //print(json!["statuses"])
+                    print("status" , json!["statuses"])
                     let arrayObj = json!["statuses"] as? [[String : Any]]
+                    self.appData.numShown = (arrayObj?.count)!
                     // GET NAME
                     var i = 0
-                    while (i < numTweetsReturned) {
-                        // GET NAME
-                        let user = arrayObj![i]["user"] as? [String : Any]
-                 
-                        let name = user!["screen_name"] as? String ?? ""
-                        // GET TEXT
-                        let text = arrayObj![i]["text"] as? String ?? ""
-                        // GET URL
-                        let urlNum = arrayObj![i]["id_str"] as? String ?? ""
-                        let urlId = user!["id_str"] as? String ?? ""
-                        let url = "https://twitter.com/" + urlId + "/status/" + urlNum
-                        // ADD TO ARRAY
-                        arrayDataReturned.append((name: name, text: text, url: url))
+                    while (i < self.appData.numShown) {
+                        if (i != numTweetsReturned) {
+                        
+                            // GET NAME
+                            let user = arrayObj![i]["user"] as? [String : Any]
+                     
+                            let name = user!["screen_name"] as? String ?? ""
+                            // GET TEXT
+                            let text = arrayObj![i]["text"] as? String ?? ""
+                            // GET URL
+                            let urlNum = arrayObj![i]["id_str"] as? String ?? ""
+                            let urlId = user!["id_str"] as? String ?? ""
+                            let url = "https://twitter.com/" + urlId + "/status/" + urlNum
+                            // ADD TO ARRAY
+                            arrayDataReturned.append((name: name, text: text, url: url))
+                        }
                         i = i + 1
                     }
                 } catch {

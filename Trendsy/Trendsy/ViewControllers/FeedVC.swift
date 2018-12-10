@@ -30,6 +30,13 @@ class FeedVC: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
+        getData()
+    }
+    
+    func getData() {
+        let instanceOfJson = JSONController()
+        let jsonData = instanceOfJson.dispatchFunc(givenLocation: appData.location)
+        appData.feedLocationData = jsonData
     }
     
     // MARK: Properties
@@ -74,10 +81,10 @@ extension FeedVC: UICollectionViewDataSource {
         let image = images[indexPath.item]
         cell.imageView.image = image
         
-        let instanceOfJson = JSONController()
-        let jsonData = instanceOfJson.dispatchFunc(givenLocation: appData.location)
-        appData.feedLocationData = jsonData
-        cell.tweet.text = jsonData[indexPath.item].name.uppercased()
+//        let instanceOfJson = JSONController()
+//        let jsonData = instanceOfJson.dispatchFunc(givenLocation: appData.location)
+//        appData.feedLocationData = jsonData
+        cell.tweet.text = appData.feedLocationData[indexPath.item].name.uppercased()
         return cell
     }
     

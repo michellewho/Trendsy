@@ -17,13 +17,30 @@ class SpecificResultsVC: UIViewController {
         
         super.viewDidLoad()
         tableView.delegate = self
+        
+//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipe))
+//        swipeRight.direction = .right
+//        self.view.addGestureRecognizer(swipeRight)
     }
+//
+//    @objc func swipe(sender: UISwipeGestureRecognizer) {
+//        if (appData.inCat) {
+//            if (sender.direction == .right) {
+//                performSegue(withIdentifier: "backToBrowse", sender: self)
+//            }
+//        } else {
+//            if (sender.direction == .right) {
+//                performSegue(withIdentifier: "backToTopics", sender: self)
+//            }
+//        }
+//
+//    }
 }
 
 extension SpecificResultsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return appData.specificTweets.count
     }
     
     // Function Populates rows with data depending on user selections/searches
@@ -31,7 +48,9 @@ extension SpecificResultsVC: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "specificTweetCell")
         
         cell.textLabel?.text = appData.specificTweets[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "Avenir Next-Bold", size: 16)
         cell.detailTextLabel?.text = appData.specificTweetText[indexPath.row]
+        cell.detailTextLabel?.font = UIFont(name: "Avenir Next", size: 13)
         
         cell.detailTextLabel?.numberOfLines = 5
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -53,7 +72,7 @@ extension SpecificResultsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.00
+        return 150.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
