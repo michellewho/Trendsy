@@ -190,15 +190,21 @@ extension SearchVC: UISearchBarDelegate {
     // Function used to pass in any location data or category data even if it is not listed
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         appData.searchButtonClicked = true
-        searchedElement = []
-        if(appData.selectedScope == 0) {
-            appData.locations.append(String(searchBar.text!))
-        }else{
-            appData.categoriesToSearch.append(String(searchBar.text!))
+        if (searchBar.text! == "" ) {
+            let alert = UIAlertController(title: "Sorry!", message: "Please specify your search!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            searchedElement = []
+            if(appData.selectedScope == 0) {
+                appData.locations.append(String(searchBar.text!))
+            }else{
+                appData.categoriesToSearch.append(String(searchBar.text!))
+            }
+            searchedElement.append(String(searchBar.text!))
+            isSearching = true
+            tableView.reloadData()
         }
-        searchedElement.append(String(searchBar.text!))
-        isSearching = true
-        tableView.reloadData()
     }
     
     
