@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FeedVC
 //  Trendsy
 //
 //  Created by Michelle Ho on 12/8/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FeedVC: UIViewController {
 
     // MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: flow layout delegate
-extension ViewController: PinterestLayoutDelegate {
+extension FeedVC: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
         let image = images[indexPath.item]
         let height = image.size.height / 3
@@ -46,7 +46,7 @@ extension ViewController: PinterestLayoutDelegate {
 
 
 // MARK: data source
-extension ViewController: UICollectionViewDataSource {
+extension FeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }

@@ -95,21 +95,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOp-tE-18b">
-                                <rect key="frame" x="55" y="37" width="116" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="EOp-tE-18b" secondAttribute="height" multiplier="45:16" id="cjw-mq-NPU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1i0-G8-RNu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                                <color key="barTintColor" red="0.65681749099999998" green="0.74325960040000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="35"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="SEARCH" id="jdG-SM-4Yx"/>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="van-x5-PCh">
-                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="522"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="0Vd-Fa-eEX">
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" id="0Vd-Fa-eEX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="barTintColor" red="0.65681749099999998" green="0.74325960040000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
                                         <outlet property="delegate" destination="6sH-wo-TPL" id="ev4-fk-hzX"/>
@@ -138,12 +141,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="22a-sA-qOZ" firstAttribute="trailing" secondItem="van-x5-PCh" secondAttribute="trailing" id="1fJ-8A-wQ8"/>
-                            <constraint firstItem="van-x5-PCh" firstAttribute="top" secondItem="22a-sA-qOZ" secondAttribute="top" constant="96" id="Kfk-Bl-BBw"/>
-                            <constraint firstItem="22a-sA-qOZ" firstAttribute="bottom" secondItem="van-x5-PCh" secondAttribute="bottom" id="L4m-Iy-arE"/>
-                            <constraint firstItem="EOp-tE-18b" firstAttribute="top" secondItem="22a-sA-qOZ" secondAttribute="top" constant="17" id="cA9-6c-ZH9"/>
-                            <constraint firstItem="EOp-tE-18b" firstAttribute="leading" secondItem="22a-sA-qOZ" secondAttribute="leading" constant="55" id="dxv-gC-5S9"/>
-                            <constraint firstItem="van-x5-PCh" firstAttribute="leading" secondItem="22a-sA-qOZ" secondAttribute="leading" id="iK8-UW-I9I"/>
+                            <constraint firstItem="van-x5-PCh" firstAttribute="bottom" secondItem="22a-sA-qOZ" secondAttribute="bottom" id="5ez-Wv-VP2"/>
+                            <constraint firstItem="van-x5-PCh" firstAttribute="trailing" secondItem="22a-sA-qOZ" secondAttribute="trailing" id="9Zj-vD-k2V"/>
+                            <constraint firstItem="1i0-G8-RNu" firstAttribute="leading" secondItem="22a-sA-qOZ" secondAttribute="leading" id="A7W-VI-pCo"/>
+                            <constraint firstItem="van-x5-PCh" firstAttribute="leading" secondItem="22a-sA-qOZ" secondAttribute="leading" id="BXn-7k-hJY"/>
+                            <constraint firstItem="1i0-G8-RNu" firstAttribute="top" secondItem="0AX-yF-rVA" secondAttribute="top" id="MFj-d4-isg"/>
+                            <constraint firstItem="1i0-G8-RNu" firstAttribute="trailing" secondItem="22a-sA-qOZ" secondAttribute="trailing" id="X0e-bF-a4L"/>
+                            <constraint firstItem="van-x5-PCh" firstAttribute="top" secondItem="1i0-G8-RNu" secondAttribute="bottom" id="i6S-Sh-jZ1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="22a-sA-qOZ"/>
                     </view>
@@ -201,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="-292" y="677"/>
         </scene>
-        <!--View Controller-->
+        <!--FeedVC-->
         <scene sceneID="Qxz-ZZ-zz6">
             <objects>
-                <viewController id="350-Em-QbR" customClass="ViewController" customModule="Trendsy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="350-Em-QbR" customClass="FeedVC" customModule="Trendsy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rAT-9T-5hn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
