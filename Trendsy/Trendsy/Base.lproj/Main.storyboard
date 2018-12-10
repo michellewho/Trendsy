@@ -377,17 +377,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="t1q-ty-ra9" firstAttribute="trailing" secondItem="EUH-JF-XOJ" secondAttribute="trailing" id="2Bf-rQ-rqL"/>
                             <constraint firstItem="EUH-JF-XOJ" firstAttribute="trailing" secondItem="rnT-Br-dw7" secondAttribute="trailing" constant="16" id="3eT-bo-gK5"/>
-                            <constraint firstItem="BtZ-U4-CGq" firstAttribute="leading" secondItem="EUH-JF-XOJ" secondAttribute="leading" id="4fJ-Fz-6kc"/>
-                            <constraint firstItem="t1q-ty-ra9" firstAttribute="leading" secondItem="EUH-JF-XOJ" secondAttribute="leading" id="FTf-H6-6Rw"/>
-                            <constraint firstItem="BtZ-U4-CGq" firstAttribute="top" secondItem="rAT-9T-5hn" secondAttribute="top" id="Ktt-LO-uGm"/>
+                            <constraint firstItem="BtZ-U4-CGq" firstAttribute="top" secondItem="rAT-9T-5hn" secondAttribute="top" id="5lf-Pc-aX0"/>
+                            <constraint firstItem="t1q-ty-ra9" firstAttribute="leading" secondItem="EUH-JF-XOJ" secondAttribute="leading" id="SD5-Pa-Sg9"/>
                             <constraint firstItem="rnT-Br-dw7" firstAttribute="centerY" secondItem="rAT-9T-5hn" secondAttribute="centerY" id="Vnd-7t-kZU"/>
-                            <constraint firstItem="t1q-ty-ra9" firstAttribute="bottom" secondItem="EUH-JF-XOJ" secondAttribute="bottom" id="Vuk-rc-6I1"/>
-                            <constraint firstItem="t1q-ty-ra9" firstAttribute="trailing" secondItem="EUH-JF-XOJ" secondAttribute="trailing" id="c1M-nl-Ftx"/>
+                            <constraint firstItem="BtZ-U4-CGq" firstAttribute="trailing" secondItem="EUH-JF-XOJ" secondAttribute="trailing" id="bnf-QK-b8b"/>
                             <constraint firstItem="rnT-Br-dw7" firstAttribute="leading" secondItem="EUH-JF-XOJ" secondAttribute="leading" constant="16" id="g45-IE-C6K"/>
-                            <constraint firstItem="t1q-ty-ra9" firstAttribute="top" secondItem="BtZ-U4-CGq" secondAttribute="bottom" id="gmj-eY-XYH"/>
-                            <constraint firstItem="BtZ-U4-CGq" firstAttribute="trailing" secondItem="EUH-JF-XOJ" secondAttribute="trailing" id="khY-sb-rbM"/>
+                            <constraint firstItem="t1q-ty-ra9" firstAttribute="top" secondItem="BtZ-U4-CGq" secondAttribute="bottom" id="oFI-Vx-lKo"/>
+                            <constraint firstItem="BtZ-U4-CGq" firstAttribute="leading" secondItem="EUH-JF-XOJ" secondAttribute="leading" id="sas-EP-pZP"/>
                             <constraint firstItem="rnT-Br-dw7" firstAttribute="centerX" secondItem="rAT-9T-5hn" secondAttribute="centerX" id="tKj-aS-4Fy"/>
+                            <constraint firstItem="t1q-ty-ra9" firstAttribute="bottom" secondItem="EUH-JF-XOJ" secondAttribute="bottom" id="xAP-Qc-Owt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EUH-JF-XOJ"/>
                     </view>
@@ -541,7 +541,7 @@
         <segue reference="lzU-1b-eKA"/>
         <segue reference="q6S-hE-2RS"/>
         <segue reference="lCv-DT-ZzF"/>
-        <segue reference="fZn-do-oaa"/>
+        <segue reference="Ni1-Vv-wCC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

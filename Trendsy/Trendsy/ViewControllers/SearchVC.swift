@@ -28,6 +28,7 @@ class SearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchBar.delegate = self
         searchBar.scopeButtonTitles = ["Location", "Categories"]
         appData.selectedScope = 0
@@ -71,7 +72,10 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = appData.locations[indexPath.row]
             cell.imageView?.image = nil
         }
-        cell.textLabel?.font = UIFont(name: "Avenir Next", size: 16)
+        cell.textLabel?.textColor = #colorLiteral(red: 0.4504547798, green: 0.5101969303, blue: 0.689423382, alpha: 1)
+        cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+//        cell.textLabel?.font = UIFont(name: "Avenir Next", size: 16)
+        
         
         // Adds boarder to table cells
         cell.layer.masksToBounds = true

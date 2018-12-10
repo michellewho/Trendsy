@@ -16,6 +16,7 @@ class SpecificResultsVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         tableView.delegate = self
         appData.searchButtonClicked = false
     }
@@ -32,26 +33,28 @@ extension SpecificResultsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "specificTweetCell")
         
-        cell.textLabel?.text = appData.specificTweets[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Avenir Next-Bold", size: 16)
+        var tweetText = appData.specificTweets[indexPath.row]
+        if(tweetText.prefix(1) != "#") {
+            tweetText.insert("#", at: tweetText.startIndex)
+        }
+        
+        cell.textLabel?.textColor = #colorLiteral(red: 0.3362201505, green: 0.3416172901, blue: 0.5676157995, alpha: 1)
+        cell.detailTextLabel?.textColor = #colorLiteral(red: 0.4504547798, green: 0.5101969303, blue: 0.689423382, alpha: 1)
+        
+        cell.textLabel?.text = tweetText.replacingOccurrences(of: " ", with: "")
+        cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
         cell.detailTextLabel?.text = appData.specificTweetText[indexPath.row]
         cell.detailTextLabel?.font = UIFont(name: "Avenir Next", size: 13)
         
         cell.detailTextLabel?.numberOfLines = 5
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         
-        var font = UIFont(name: "Thonburi-Light", size: 15)!
-        if(appData.selectedScope == 1) {
-            font = UIFont(name: "Thonburi-Light", size: 25)!
-        }
-        cell.textLabel?.font = font
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 4
         cell.layer.borderWidth = 1
         cell.layer.shadowOffset = CGSize(width: -1, height: 1)
-        let borderColor: UIColor = UIColor(red:0.24, green:0.43, blue:0.89, alpha:1.0)
-        cell.layer.borderColor = borderColor.cgColor
+        cell.layer.borderColor = #colorLiteral(red: 0.656817491, green: 0.7432596004, blue: 1, alpha: 1)
         
         return cell
     }

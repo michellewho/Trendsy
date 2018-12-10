@@ -17,21 +17,12 @@ class ResultsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         tableView.delegate = self
         print("entered")
         
-//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipe))
-//        swipeRight.direction = .right
-//        self.view.addGestureRecognizer(swipeRight)
     }
-    
-//    @objc func swipe(sender: UISwipeGestureRecognizer) {
-//        if (sender.direction == .right) {
-//            performSegue(withIdentifier: "backToSearch", sender: self)
-//        }
-//    }
-    
     
 }
 
@@ -44,29 +35,28 @@ extension ResultsVC: UITableViewDelegate, UITableViewDataSource {
     // Function Populates rows with data depending on user selections/searches
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "resultsCell")
-        cell.textLabel?.text = appData.top5Username[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Avenir Next-Bold", size: 16)
-        cell.detailTextLabel?.text = appData.top5[indexPath.row]
-        cell.detailTextLabel?.font = UIFont(name: "Avenir Next", size: 13)
+        var resultText = appData.top5Username[indexPath.row]
+        if(resultText.prefix(1) != "#") {
+            resultText.insert("#", at: resultText.startIndex)
+        }
+        cell.textLabel?.textColor = #colorLiteral(red: 0.4504547798, green: 0.5101969303, blue: 0.689423382, alpha: 1)
+        cell.detailTextLabel?.textColor = #colorLiteral(red: 0.4504547798, green: 0.5101969303, blue: 0.689423382, alpha: 1)
+        cell.textLabel?.text = resultText.replacingOccurrences(of: " ", with: "")
+        cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 20)
+//        cell.detailTextLabel?.text = appData.top5[indexPath.row]
+//        cell.detailTextLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 13)
         
         
-        cell.detailTextLabel?.numberOfLines = 0
-        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+//        cell.detailTextLabel?.numberOfLines = 0
+//        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         
         cell.textLabel?.textAlignment = .center
-        
-        var font = UIFont(name: "Thonburi-Light", size: 15)!
-        if(appData.selectedScope == 1) {
-            font = UIFont(name: "Thonburi-Light", size: 25)!
-        }
-        cell.textLabel?.font = font
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 4
         cell.layer.borderWidth = 1
         cell.layer.shadowOffset = CGSize(width: -1, height: 1)
-        let borderColor: UIColor = UIColor(red:0.24, green:0.43, blue:0.89, alpha:1.0)
-        cell.layer.borderColor = borderColor.cgColor
+        cell.layer.borderColor = #colorLiteral(red: 0.656817491, green: 0.7432596004, blue: 1, alpha: 1)
         
         return cell
     }

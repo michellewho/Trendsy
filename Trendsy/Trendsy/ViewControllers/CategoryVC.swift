@@ -17,6 +17,7 @@ class CategoryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.reloadData()
         tableView.dataSource = self
         
@@ -38,10 +39,19 @@ extension CategoryVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
         if(appData.categories.count > indexPath.row) {
-            cell.textLabel?.text = appData.categories[indexPath.row]
-            cell.textLabel?.font = UIFont(name: "Avenir Next", size: 16)
+            var catText = appData.categories[indexPath.row]
+            if(catText.prefix(1) != "#") {
+                catText.insert("#", at: catText.startIndex)
+            }
+            cell.textLabel?.text = catText.replacingOccurrences(of: " ", with: "")
+            cell.textLabel?.textColor = #colorLiteral(red: 0.4504547798, green: 0.5101969303, blue: 0.689423382, alpha: 1)
+            cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 20)
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -63,7 +73,7 @@ extension CategoryVC: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(UIAlertAction(title: "Search Another Term", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
-            while index < 5 {
+            while index < 5 && index < jsonData.count {
 //                open var specificTweets = [String]()
 //                open var specificTweetText = [String]()
 //                open var specificTweetLinks = [String]()
