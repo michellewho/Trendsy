@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZSn-tt-4l1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZSn-tt-4l1">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RWN-mr-Qee">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" rowHeight="86" id="6N9-zx-Ylc">
@@ -147,7 +147,7 @@
             </objects>
             <point key="canvasLocation" x="1695.6521739130435" y="1109.5982142857142"/>
         </scene>
-        <!--ResultsVC-->
+        <!--TRENDING TOPICS-->
         <scene sceneID="weX-D4-vJV">
             <objects>
                 <viewController id="Vsg-LX-A4i" customClass="ResultsVC" customModule="Trendsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -178,6 +178,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="P6s-LA-esk"/>
                     </view>
+                    <navigationItem key="navigationItem" title="TRENDING TOPICS" id="k42-ni-rEk"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="dpC-Hm-unN" id="uaz-2a-gdt"/>
@@ -401,7 +402,7 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-328.125"/>
         </scene>
-        <!--Specific ResultsVC-->
+        <!--TRENDING TWEETS-->
         <scene sceneID="mRx-cu-xx9">
             <objects>
                 <viewController id="Y91-5N-7CV" customClass="SpecificResultsVC" customModule="Trendsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -410,7 +411,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EyB-Qh-6dJ">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="specificTweetCell" id="9N2-dC-SYg">
@@ -437,6 +438,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yl9-bw-5nS"/>
                     </view>
+                    <navigationItem key="navigationItem" title="TRENDING TWEETS" id="aE9-BP-TNv"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="dpC-Hm-unN" id="suN-ia-0Ge"/>
@@ -531,17 +533,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="category" width="20" height="20"/>
-        <image name="feed" width="20" height="22"/>
+        <image name="category" width="40" height="40"/>
+        <image name="feed" width="40" height="44"/>
         <image name="logo" width="276" height="207"/>
         <image name="placeholder" width="1200" height="1200"/>
-        <image name="search" width="20" height="20"/>
+        <image name="search" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lzU-1b-eKA"/>
-        <segue reference="q6S-hE-2RS"/>
-        <segue reference="lCv-DT-ZzF"/>
-        <segue reference="fZn-do-oaa"/>
+        <segue reference="dn9-K8-hIX"/>
+        <segue reference="oFh-Fq-prq"/>
+        <segue reference="rFy-pZ-x4C"/>
+        <segue reference="Ni1-Vv-wCC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
